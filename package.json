@@ -8,6 +8,9 @@
   "scripts": {
     "build": "gulp"
   },
+  "dependencies": {
+    "normalize.css": "^7.0.0"
+  },
   "devDependencies": {
     "gulp": "^3.9.1"
   }
