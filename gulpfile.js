@@ -1,4 +1,5 @@
 let gulp = require("gulp");
+let concat = require("gulp-concat");
 
 gulp.task("default", () => {
   let srcFiles = [
@@ -7,5 +8,6 @@ gulp.task("default", () => {
   ];
 
   return gulp.src(srcFiles)
+    .pipe(concat("homepage.css"))
     .pipe(gulp.dest("./public"));
 });
