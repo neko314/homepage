@@ -1,6 +1,7 @@
 let gulp = require("gulp");
 let concat = require("gulp-concat");
 let clean = require("gulp-clean-css");
+let sourcemaps = require("gulp-sourcemaps");
 
 gulp.task("default", () => {
   let srcFiles = [
@@ -9,7 +10,9 @@ gulp.task("default", () => {
   ];
 
   return gulp.src(srcFiles)
-    .pipe(concat("homepage.css"))
-    .pipe(clean())
+    .pipe(sourcemaps.init())
+      .pipe(concat("homepage.css"))
+      .pipe(clean())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest("./public"));
 });
