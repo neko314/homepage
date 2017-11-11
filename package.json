@@ -1,0 +1,8 @@
+{
+  "name": "homepage",
+  "version": "1.0.0",
+  "description": "My homepage",
+  "author": "Naoto Kaneko <naoty.k@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
