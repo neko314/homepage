@@ -4,5 +4,11 @@
   "description": "My homepage",
   "author": "Naoto Kaneko <naoty.k@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "build": "gulp"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
