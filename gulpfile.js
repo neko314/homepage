@@ -6,9 +6,18 @@ let sourcemaps = require("gulp-sourcemaps");
 let sass = require("gulp-sass");
 
 gulp.task("pages", () => {
-  return gulp.src("./layouts/index.ejs")
-    .pipe(ejs({}, {}, { ext: ".html" }))
-    .pipe(gulp.dest("./public"))
+  let layouts = {
+    "./layouts/index.ejs": ["../contents/index.ejs"]
+  };
+
+  for (let layout in layouts) {
+    let contents = layouts[layout]
+    for (let content of contents) {
+      gulp.src(layout)
+        .pipe(ejs({ content: content }, {}, { ext: ".html" }))
+        .pipe(gulp.dest("./public"));
+    }
+  }
 });
 
 gulp.task("stylesheets", () => {
@@ -17,7 +26,7 @@ gulp.task("stylesheets", () => {
     "./stylesheets/index.css"
   ];
 
-  return gulp.src(srcFiles)
+  gulp.src(srcFiles)
     .pipe(sourcemaps.init())
       .pipe(sass().on("error", sass.logError))
       .pipe(concat("homepage.css"))
