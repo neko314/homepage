@@ -1,0 +1,10 @@
+{
+  "name": "gulp-ejs-layout",
+  "version": "0.1.0",
+  "author": "Naoto Kaneko <naoty.k@gmail.com>",
+  "description": "A gulp plugin to inject contents into layout in EJS",
+  "private": true,
+  "dependencies": {
+    "through2": "^2.0.3"
+  }
+}
