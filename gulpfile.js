@@ -2,6 +2,7 @@ let gulp = require("gulp");
 
 let clean      = require("gulp-clean-css");
 let concat     = require("gulp-concat");
+let htmlmin    = require("gulp-htmlmin");
 let layout     = require("gulp-ejs-layout");
 let markdown   = require("gulp-markdown");
 let sass       = require("gulp-sass");
@@ -11,6 +12,7 @@ gulp.task("pages", () => {
   gulp.src("./contents/**/*.md")
     .pipe(markdown())
     .pipe(layout("./layouts/index.ejs"))
+    .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("./public"));
 });
 
