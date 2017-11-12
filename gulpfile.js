@@ -1,12 +1,13 @@
 let gulp = require("gulp");
 
-let clean      = require("gulp-clean-css");
-let concat     = require("gulp-concat");
-let htmlmin    = require("gulp-htmlmin");
-let layout     = require("gulp-ejs-layout");
-let markdown   = require("gulp-markdown");
-let sass       = require("gulp-sass");
-let sourcemaps = require("gulp-sourcemaps");
+let browserSync = require("browser-sync").create();
+let clean       = require("gulp-clean-css");
+let concat      = require("gulp-concat");
+let htmlmin     = require("gulp-htmlmin");
+let layout      = require("gulp-ejs-layout");
+let markdown    = require("gulp-markdown");
+let sass        = require("gulp-sass");
+let sourcemaps  = require("gulp-sourcemaps");
 
 gulp.task("pages", () => {
   gulp.src("./contents/**/*.md")
@@ -28,10 +29,20 @@ gulp.task("stylesheets", () => {
       .pipe(concat("homepage.css"))
       .pipe(clean())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest("./public"));
+    .pipe(gulp.dest("./public"))
+    .pipe(browserSync.stream());
 });
 
-gulp.task("default", ["pages", "stylesheets"], () => {
-  gulp.watch("./contents/**/*.md", ["pages"]);
+gulp.task("browser-sync", () => {
+  browserSync.init({
+    server: {
+      baseDir: "./public"
+    }
+  })
+});
+
+gulp.task("default", ["pages", "stylesheets", "browser-sync"], () => {
+  gulp.watch("./contents/**/*.md", ["pages"]).on("change", browserSync.reload);
+  gulp.watch("./layouts/**/*.ejs", ["pages"]).on("change", browserSync.reload);
   gulp.watch("./stylesheets/**/*.sass", ["stylesheets"]);
 });
