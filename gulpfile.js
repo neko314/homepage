@@ -19,7 +19,7 @@ gulp.task("pages", () => {
 gulp.task("stylesheets", () => {
   let srcFiles = [
     "./node_modules/normalize.css/normalize.css",
-    "./stylesheets/index.css"
+    "./stylesheets/index.sass"
   ];
 
   gulp.src(srcFiles)
