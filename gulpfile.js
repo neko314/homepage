@@ -1,5 +1,6 @@
 let gulp = require("gulp");
 let markdown = require("gulp-markdown");
+let rename = require("gulp-rename");
 let ejs = require("gulp-ejs");
 let concat = require("gulp-concat");
 let clean = require("gulp-clean-css");
@@ -24,6 +25,7 @@ gulp.task("pages", () => {
 gulp.task("contents", () => {
   gulp.src("./contents/**/*.md")
     .pipe(markdown())
+    .pipe(rename({ extname: ".ejs" }))
     .pipe(gulp.dest("./build"));
 });
 
