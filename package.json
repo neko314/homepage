@@ -16,6 +16,7 @@
     "gulp-clean-css": "^3.9.0",
     "gulp-concat": "^2.6.1",
     "gulp-ejs": "^3.1.0",
+    "gulp-markdown": "^1.2.0",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1"
   }

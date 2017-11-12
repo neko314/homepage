@@ -1,4 +1,5 @@
 let gulp = require("gulp");
+let markdown = require("gulp-markdown");
 let ejs = require("gulp-ejs");
 let concat = require("gulp-concat");
 let clean = require("gulp-clean-css");
@@ -18,6 +19,12 @@ gulp.task("pages", () => {
         .pipe(gulp.dest("./public"));
     }
   }
+});
+
+gulp.task("contents", () => {
+  gulp.src("./contents/**/*.md")
+    .pipe(markdown())
+    .pipe(gulp.dest("./build"));
 });
 
 gulp.task("stylesheets", () => {
