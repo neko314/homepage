@@ -1,32 +1,16 @@
 let gulp = require("gulp");
 let markdown = require("gulp-markdown");
-let rename = require("gulp-rename");
-let ejs = require("gulp-ejs");
+let layout = require("gulp-ejs-layout");
 let concat = require("gulp-concat");
 let clean = require("gulp-clean-css");
 let sourcemaps = require("gulp-sourcemaps");
 let sass = require("gulp-sass");
 
 gulp.task("pages", () => {
-  let layouts = {
-    "./layouts/index.ejs": ["../contents/index.ejs"]
-  };
-
-  for (let layout in layouts) {
-    let contents = layouts[layout]
-    for (let content of contents) {
-      gulp.src(layout)
-        .pipe(ejs({ content: content }, {}, { ext: ".html" }))
-        .pipe(gulp.dest("./public"));
-    }
-  }
-});
-
-gulp.task("contents", () => {
   gulp.src("./contents/**/*.md")
     .pipe(markdown())
-    .pipe(rename({ extname: ".ejs" }))
-    .pipe(gulp.dest("./build"));
+    .pipe(layout("./layouts/index.ejs"))
+    .pipe(gulp.dest("./public"));
 });
 
 gulp.task("stylesheets", () => {
