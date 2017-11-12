@@ -1,10 +1,11 @@
 let gulp = require("gulp");
-let markdown = require("gulp-markdown");
-let layout = require("gulp-ejs-layout");
-let concat = require("gulp-concat");
-let clean = require("gulp-clean-css");
+
+let clean      = require("gulp-clean-css");
+let concat     = require("gulp-concat");
+let layout     = require("gulp-ejs-layout");
+let markdown   = require("gulp-markdown");
+let sass       = require("gulp-sass");
 let sourcemaps = require("gulp-sourcemaps");
-let sass = require("gulp-sass");
 
 gulp.task("pages", () => {
   gulp.src("./contents/**/*.md")
