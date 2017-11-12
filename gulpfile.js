@@ -31,4 +31,7 @@ gulp.task("stylesheets", () => {
     .pipe(gulp.dest("./public"));
 });
 
-gulp.task("default", ["pages", "stylesheets"])
+gulp.task("default", ["pages", "stylesheets"], () => {
+  gulp.watch("./contents/**/*.md", ["pages"]);
+  gulp.watch("./stylesheets/**/*.sass", ["stylesheets"]);
+});
