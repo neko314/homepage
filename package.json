@@ -9,7 +9,7 @@
     "build": "gulp"
   },
   "dependencies": {
-    "normalize.css": "^7.0.0"
+    "ress": "^1.2.2"
   },
   "devDependencies": {
     "browser-sync": "^2.18.13",
