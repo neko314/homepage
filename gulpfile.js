@@ -13,6 +13,7 @@ gulp.task("homepage", () => {
   gulp.src("./contents/index.md")
     .pipe(markdown())
     .pipe(layout("./layouts/index.ejs"))
+    .pipe(layout("./layouts/base.ejs", { stylesheetPath: "./homepage.css" }))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("./public"));
 });
@@ -21,6 +22,7 @@ gulp.task("post", () => {
   gulp.src("./contents/posts/*.md")
     .pipe(markdown())
     .pipe(layout("./layouts/posts/post.ejs"))
+    .pipe(layout("./layouts/base.ejs", { stylesheetPath: "../homepage.css" }))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("./public/posts"));
 });
