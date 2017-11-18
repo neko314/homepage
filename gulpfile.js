@@ -13,6 +13,11 @@ let sourcemaps  = require("gulp-sourcemaps");
 gulp.task("homepage", () => {
   gulp.src("./contents/index.md")
     .pipe(markdown())
+    .pipe(data((file) => {
+      return {
+        pageTitle: "Naoto Kaneko"
+      };
+    }))
     .pipe(layout("./layouts/index.ejs"))
     .pipe(layout("./layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
@@ -23,10 +28,12 @@ gulp.task("post", () => {
   gulp.src("./contents/posts/*.md")
     .pipe(markdown())
     .pipe(data((file) => {
+      let postTitle = path.basename(file.path, ".html");
       return {
+        pageTitle: `${postTitle} - Naoto Kaneko`,
+        postTitle: postTitle,
         publishTime: file.stat.mtime.toLocaleString(),
-        publishTimeISO8601: file.stat.mtime.toISOString(),
-        title: path.basename(file.path, ".html")
+        publishTimeISO8601: file.stat.mtime.toISOString()
       };
     }))
     .pipe(layout("./layouts/posts/post.ejs"))
