@@ -45,7 +45,8 @@ gulp.task("post", () => {
 gulp.task("stylesheets", () => {
   let srcFiles = [
     "./node_modules/ress/ress.css",
-    "./stylesheets/index.sass"
+    "./stylesheets/base.sass",
+    "./stylesheets/large.sass"
   ];
 
   gulp.src(srcFiles)
