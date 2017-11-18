@@ -1,7 +1,7 @@
 <article>
   <header class="post-header">
-    <h1 class="post-title">ブログタイトル</h1>
-    <p class="post-metadata">公開：<time datetime="2017-11-13T22:01:00+09:00">2017-11-13 22:01</time></p>
+    <h1 class="post-title"><%= title %></h1>
+    <p class="post-metadata">公開：<time datetime="<%= publishTimeISO8601 %>"><%= publishTime %></time></p>
   </header>
   <section class="post-content">
     <%- content %>

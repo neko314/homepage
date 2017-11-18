@@ -1,11 +1,12 @@
-let gulp = require("gulp");
-
 let browserSync = require("browser-sync").create();
 let clean       = require("gulp-clean-css");
 let concat      = require("gulp-concat");
+let data        = require("gulp-data");
+let gulp        = require("gulp");
 let htmlmin     = require("gulp-htmlmin");
 let layout      = require("gulp-ejs-layout");
 let markdown    = require("gulp-markdown");
+let path        = require("path");
 let sass        = require("gulp-sass");
 let sourcemaps  = require("gulp-sourcemaps");
 
@@ -21,6 +22,13 @@ gulp.task("homepage", () => {
 gulp.task("post", () => {
   gulp.src("./contents/posts/*.md")
     .pipe(markdown())
+    .pipe(data((file) => {
+      return {
+        publishTime: file.stat.mtime.toLocaleString(),
+        publishTimeISO8601: file.stat.mtime.toISOString(),
+        title: path.basename(file.path, ".html")
+      };
+    }))
     .pipe(layout("./layouts/posts/post.ejs"))
     .pipe(layout("./layouts/base.ejs", { stylesheetPath: "../homepage.css" }))
     .pipe(htmlmin({ collapseWhitespace: true }))
