@@ -59,7 +59,9 @@ gulp.task("browser-sync", () => {
   })
 });
 
-gulp.task("default", ["homepage", "post", "stylesheets", "browser-sync"], () => {
+gulp.task("default", ["homepage", "post", "stylesheets"]);
+
+gulp.task("server", ["default", "browser-sync"], () => {
   gulp.watch("./contents/index.md", ["homepage"]).on("change", browserSync.reload);
   gulp.watch("./contents/posts/*.md", ["post"]).on("change", browserSync.reload);
   gulp.watch("./layouts/index.ejs", ["homepage"]).on("change", browserSync.reload);
