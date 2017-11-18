@@ -14,7 +14,7 @@ gulp.task("homepage", () => {
   gulp.src("./contents/index.md")
     .pipe(markdown())
     .pipe(layout("./layouts/index.ejs"))
-    .pipe(layout("./layouts/base.ejs", { rootPath: "." }))
+    .pipe(layout("./layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("./public"));
 });
@@ -30,7 +30,7 @@ gulp.task("post", () => {
       };
     }))
     .pipe(layout("./layouts/posts/post.ejs"))
-    .pipe(layout("./layouts/base.ejs", { rootPath: ".." }))
+    .pipe(layout("./layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("./public/posts"));
 });
