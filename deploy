@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# != 1 ]; then
+  echo "usage: deploy <message>"
+  exit 1
+fi
+
+npm run build
+
+cd public
+git add .
+git commit -m "$1"
+git push origin master
+cd ..
+
+git submodule update
