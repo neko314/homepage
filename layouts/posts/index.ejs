@@ -1,7 +1,8 @@
-<section>
+<h1 class="posts-title">Posts</h1>
+<section class="posts-content">
   <ul>
     <% for (let file of files) { %>
-    <li><a href="/posts/<%= path.basename(file.path) %>"><%= path.basename(file.path, ".html") %></a></li>
+    <li><a href="/posts/<%= path.basename(file.path) %>"><%= path.basename(file.path, ".html") %></a> (<%= file.stat.mtime.toLocaleString() %>)</li>
     <% } %>
   </ul>
 </section>
