@@ -15,3 +15,4 @@
 # Links
 * [https://github.com/naoty](https://github.com/naoty)
 * [https://twitter.com/naoty_k](https://twitter.com/naoty_k) (Japanese)
+* [https://naoty.github.io/posts/](/posts/) (Japanese)
