@@ -1,8 +1,13 @@
-<h1 class="posts-title">Posts</h1>
 <section class="posts-content">
-  <ul>
+  <header class="posts-header">
+    <h1 class="posts-title">Posts</h1>
+  </header>
+  <ul class="posts-list">
     <% for (let file of files) { %>
     <li><a href="/posts/<%= file.data.title %>.html"><%= file.data.title %></a> (<%= file.stat.mtime.toLocaleString() %>)</li>
     <% } %>
   </ul>
+  <footer>
+    <a href="/">トップ</a>
+  </footer>
 </section>
