@@ -4,6 +4,7 @@ let concat      = require("gulp-concat");
 let data        = require("gulp-data");
 let gulp        = require("gulp");
 let htmlmin     = require("gulp-htmlmin");
+let index       = require("gulp-ejs-index");
 let layout      = require("gulp-ejs-layout");
 let markdown    = require("gulp-markdown");
 let path        = require("path");
@@ -22,6 +23,20 @@ gulp.task("homepage", () => {
     .pipe(layout("./layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("./public"));
+});
+
+gulp.task("posts", () => {
+  gulp.src("./contents/posts/*.md")
+    .pipe(markdown())
+    .pipe(index("./layouts/posts/index.ejs", { path: path }))
+    .pipe(data((file) => {
+      return {
+        pageTitle: "Posts - Naoto Kaneko"
+      };
+    }))
+    .pipe(layout("./layouts/base.ejs"))
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest("./public/posts"))
 });
 
 gulp.task("post", () => {
@@ -67,12 +82,13 @@ gulp.task("browser-sync", () => {
   })
 });
 
-gulp.task("default", ["homepage", "post", "stylesheets"]);
+gulp.task("default", ["homepage", "post", "posts", "stylesheets"]);
 
 gulp.task("server", ["default", "browser-sync"], () => {
   gulp.watch("./contents/index.md", ["homepage"]).on("change", browserSync.reload);
-  gulp.watch("./contents/posts/*.md", ["post"]).on("change", browserSync.reload);
+  gulp.watch("./contents/posts/*.md", ["post", "posts"]).on("change", browserSync.reload);
   gulp.watch("./layouts/index.ejs", ["homepage"]).on("change", browserSync.reload);
   gulp.watch("./layouts/posts/post.ejs", ["post"]).on("change", browserSync.reload);
+  gulp.watch("./layouts/posts/index.ejs", ["posts"]).on("change", browserSync.reload);
   gulp.watch("./stylesheets/**/*.sass", ["stylesheets"]);
 });

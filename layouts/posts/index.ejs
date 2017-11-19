@@ -1,0 +1,7 @@
+<section>
+  <ul>
+    <% for (let file of files) { %>
+    <li><a href="/posts/<%= path.basename(file.path) %>"><%= path.basename(file.path, ".html") %></a></li>
+    <% } %>
+  </ul>
+</section>
