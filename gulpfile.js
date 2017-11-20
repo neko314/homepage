@@ -47,7 +47,7 @@ gulp.task("post", () => {
     .pipe(markdown())
     .pipe(data((file) => {
       return {
-        pageTitle: `${path.basename(file.path, ".html")} - Naoto Kaneko`,
+        pageTitle: `${file.frontMatter.title} - Naoto Kaneko`,
       };
     }))
     .pipe(layout("./layouts/posts/post.ejs", { path: path }))

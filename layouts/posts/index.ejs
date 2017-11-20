@@ -4,7 +4,7 @@
   </header>
   <ul class="posts-list">
     <% for (let file of files) { %>
-    <li><a href="/posts/<%= path.basename(file.path) %>"><%= path.basename(file.path, ".html") %></a> (<%= file.stat.mtime.toLocaleString() %>)</li>
+    <li><a href="/posts/<%= path.basename(file.path) %>"><%= file.frontMatter.title %></a> (<%= file.stat.mtime.toLocaleString() %>)</li>
     <% } %>
   </ul>
   <footer class="posts-footer">
