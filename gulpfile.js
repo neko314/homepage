@@ -2,7 +2,6 @@ let browserSync = require("browser-sync").create();
 let clean       = require("gulp-clean-css");
 let concat      = require("gulp-concat");
 let data        = require("gulp-data");
-let frontMatter = require("gulp-front-matter");
 let gulp        = require("gulp");
 let htmlmin     = require("gulp-htmlmin");
 let index       = require("gulp-ejs-index");
@@ -28,9 +27,8 @@ gulp.task("homepage", () => {
 
 gulp.task("posts", () => {
   gulp.src("./contents/posts/*.md")
-    .pipe(frontMatter({ property: "data" }))
     .pipe(markdown())
-    .pipe(index("./layouts/posts/index.ejs"))
+    .pipe(index("./layouts/posts/index.ejs", { path: path }))
     .pipe(data((file) => {
       return {
         pageTitle: "Posts - Naoto Kaneko"
@@ -43,17 +41,13 @@ gulp.task("posts", () => {
 
 gulp.task("post", () => {
   gulp.src("./contents/posts/*.md")
-    .pipe(frontMatter({ property: "data" }))
     .pipe(markdown())
     .pipe(data((file) => {
-      let postTitle = path.basename(file.path, ".html");
       return {
-        pageTitle: `${file.data.title} - Naoto Kaneko`,
-        publishTime: file.stat.mtime.toLocaleString(),
-        publishTimeISO8601: file.stat.mtime.toISOString()
+        pageTitle: `${path.basename(file.path, ".html")} - Naoto Kaneko`,
       };
     }))
-    .pipe(layout("./layouts/posts/post.ejs"))
+    .pipe(layout("./layouts/posts/post.ejs", { path: path }))
     .pipe(layout("./layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("./public/posts"));

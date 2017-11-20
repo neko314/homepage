@@ -7,7 +7,10 @@ module.exports = (filename, layoutData = {}, options = {}) => {
 
   let transform = (file, encoding, callback) => {
     let fileData = file.data || {};
-    let data = Object.assign(layoutData, fileData, { content: file.contents.toString() });
+    let data = Object.assign(layoutData, fileData, {
+      content: file.contents.toString(),
+      file: file
+    });
     let result = ejs.render(layout, data, options);
     file.contents = new Buffer(result);
 
