@@ -3,6 +3,7 @@ let clean       = require("gulp-clean-css");
 let concat      = require("gulp-concat");
 let data        = require("gulp-data");
 let frontMatter = require("gulp-front-matter");
+let fs          = require("fs");
 let gulp        = require("gulp");
 let htmlmin     = require("gulp-htmlmin");
 let index       = require("gulp-ejs-index");
@@ -11,12 +12,15 @@ let markdown    = require("gulp-markdown");
 let path        = require("path");
 let sass        = require("gulp-sass");
 
-gulp.task("homepage", () => {
+gulp.task("homepage", ["stylesheets"], () => {
+  let style = fs.readFileSync("./build/style.css", "utf-8");
+
   gulp.src("./contents/index.md")
     .pipe(markdown())
     .pipe(data((file) => {
       return {
-        pageTitle: "Naoto Kaneko"
+        pageTitle: "Naoto Kaneko",
+        style: style
       };
     }))
     .pipe(layout("./layouts/index.ejs"))
@@ -25,14 +29,17 @@ gulp.task("homepage", () => {
     .pipe(gulp.dest("./public"));
 });
 
-gulp.task("posts", () => {
+gulp.task("posts", ["stylesheets"], () => {
+  let style = fs.readFileSync("./build/style.css", "utf-8");
+
   gulp.src("./contents/posts/*.md")
     .pipe(frontMatter())
     .pipe(markdown())
     .pipe(index("./layouts/posts/index.ejs", { path: path }))
     .pipe(data((file) => {
       return {
-        pageTitle: "Posts - Naoto Kaneko"
+        pageTitle: "Posts - Naoto Kaneko",
+        style: style
       };
     }))
     .pipe(layout("./layouts/base.ejs"))
@@ -40,13 +47,16 @@ gulp.task("posts", () => {
     .pipe(gulp.dest("./public/posts"))
 });
 
-gulp.task("post", () => {
+gulp.task("post", ["stylesheets"], () => {
+  let style = fs.readFileSync("./build/style.css", "utf-8");
+
   gulp.src("./contents/posts/*.md")
     .pipe(frontMatter())
     .pipe(markdown())
     .pipe(data((file) => {
       return {
         pageTitle: `${file.frontMatter.title} - Naoto Kaneko`,
+        style: style
       };
     }))
     .pipe(layout("./layouts/posts/post.ejs", { path: path }))
@@ -66,7 +76,7 @@ gulp.task("stylesheets", () => {
     .pipe(sass().on("error", sass.logError))
     .pipe(concat("style.css"))
     .pipe(clean())
-    .pipe(gulp.dest("./public"))
+    .pipe(gulp.dest("./build"))
     .pipe(browserSync.stream());
 });
 
@@ -78,7 +88,7 @@ gulp.task("browser-sync", () => {
   })
 });
 
-gulp.task("default", ["homepage", "post", "posts", "stylesheets"]);
+gulp.task("default", ["homepage", "post", "posts"]);
 
 gulp.task("server", ["default", "browser-sync"], () => {
   gulp.watch("./contents/index.md", ["homepage"]).on("change", browserSync.reload);
