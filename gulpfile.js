@@ -58,13 +58,13 @@ gulp.task("post", () => {
 gulp.task("stylesheets", () => {
   let srcFiles = [
     "./node_modules/ress/ress.css",
-    "./stylesheets/base.sass",
+    "./stylesheets/style.sass",
     "./stylesheets/large.sass"
   ];
 
   gulp.src(srcFiles)
     .pipe(sass().on("error", sass.logError))
-    .pipe(concat("homepage.css"))
+    .pipe(concat("style.css"))
     .pipe(clean())
     .pipe(gulp.dest("./public"))
     .pipe(browserSync.stream());
