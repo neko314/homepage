@@ -21,6 +21,7 @@ gulp.task("homepage", ["stylesheets"], () => {
       return {
         ogType: "profile",
         pageTitle: "Naoto Kaneko",
+        path: "",
         style: style
       };
     }))
@@ -41,6 +42,7 @@ gulp.task("posts", ["stylesheets"], () => {
       return {
         ogType: "article",
         pageTitle: "Naoto Kaneko's posts",
+        path: "/posts/index.html",
         style: style
       };
     }))
@@ -59,6 +61,7 @@ gulp.task("post", ["stylesheets"], () => {
       return {
         ogType: "article",
         pageTitle: file.frontMatter.title,
+        path: `/posts/${path.basename(file.path)}`,
         style: style
       };
     }))
