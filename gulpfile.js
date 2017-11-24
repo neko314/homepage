@@ -19,6 +19,7 @@ gulp.task("homepage", ["stylesheets"], () => {
     .pipe(markdown())
     .pipe(data((file) => {
       return {
+        ogType: "profile",
         pageTitle: "Naoto Kaneko",
         style: style
       };
@@ -38,6 +39,7 @@ gulp.task("posts", ["stylesheets"], () => {
     .pipe(index("./layouts/posts/index.ejs", { path: path }))
     .pipe(data((file) => {
       return {
+        ogType: "article",
         pageTitle: "Naoto Kaneko's posts",
         style: style
       };
@@ -55,6 +57,7 @@ gulp.task("post", ["stylesheets"], () => {
     .pipe(markdown())
     .pipe(data((file) => {
       return {
+        ogType: "article",
         pageTitle: file.frontMatter.title,
         style: style
       };
