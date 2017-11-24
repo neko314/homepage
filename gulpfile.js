@@ -38,7 +38,7 @@ gulp.task("posts", ["stylesheets"], () => {
     .pipe(index("./layouts/posts/index.ejs", { path: path }))
     .pipe(data((file) => {
       return {
-        pageTitle: "Posts - Naoto Kaneko",
+        pageTitle: "Naoto Kaneko's posts",
         style: style
       };
     }))
@@ -55,7 +55,7 @@ gulp.task("post", ["stylesheets"], () => {
     .pipe(markdown())
     .pipe(data((file) => {
       return {
-        pageTitle: `${file.frontMatter.title} - Naoto Kaneko`,
+        pageTitle: file.frontMatter.title,
         style: style
       };
     }))
