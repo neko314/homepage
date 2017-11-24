@@ -20,6 +20,7 @@ gulp.task("homepage", ["stylesheets"], () => {
     .pipe(data((file) => {
       return {
         ogType: "profile",
+        pageDescription: "Naoto Kaneko's homepage",
         pageTitle: "Naoto Kaneko",
         path: "",
         style: style
@@ -41,6 +42,7 @@ gulp.task("posts", ["stylesheets"], () => {
     .pipe(data((file) => {
       return {
         ogType: "article",
+        pageDescription: "Naoto Kaneko's posts",
         pageTitle: "Naoto Kaneko's posts",
         path: "/posts/index.html",
         style: style
@@ -60,6 +62,7 @@ gulp.task("post", ["stylesheets"], () => {
     .pipe(data((file) => {
       return {
         ogType: "article",
+        pageDescription: file.frontMatter.description || "Naoto Kaneko's post page",
         pageTitle: file.frontMatter.title,
         path: `/posts/${path.basename(file.path)}`,
         style: style
