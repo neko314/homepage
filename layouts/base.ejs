@@ -5,12 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= pageTitle %></title>
-    <style><%- style %></style>
     <meta name="description" content="Naoto Kaneko's homepage">
     <meta name="theme-color" content="white">
+    <meta property="og:title" content="<%= pageTitle %>">
+    <meta property="og:image" content="/icons/256x256.png">
     <link rel="icon" type="image/png" href="/icons/favicon.png">
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
+    <style><%- style %></style>
   </head>
   <body>
     <div class="container">
