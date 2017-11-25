@@ -21,6 +21,7 @@ gulp.task("homepage", ["stylesheets"], () => {
       return {
         ogType: "profile",
         pageDescription: "Naoto Kaneko's homepage",
+        pageImage: "/icons/256x256.png",
         pageTitle: "Naoto Kaneko",
         path: "",
         style: style
@@ -43,6 +44,7 @@ gulp.task("posts", ["stylesheets"], () => {
       return {
         ogType: "article",
         pageDescription: "Naoto Kaneko's posts",
+        pageImage: "/icons/256x256.png",
         pageTitle: "Naoto Kaneko's posts",
         path: "/posts/index.html",
         style: style
@@ -63,6 +65,7 @@ gulp.task("post", ["stylesheets"], () => {
       return {
         ogType: "article",
         pageDescription: file.frontMatter.description || "Naoto Kaneko's post page",
+        pageImage: file.frontMatter.image || "/icons/256x256.png",
         pageTitle: file.frontMatter.title,
         path: `/posts/${path.basename(file.path)}`,
         style: style
