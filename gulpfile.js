@@ -29,6 +29,7 @@ gulp.task("homepage", ["stylesheets"], () => {
       };
     }))
     .pipe(layout("./layouts/index.ejs"))
+    .pipe(prefetchLinks())
     .pipe(layout("./layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("./public"));
@@ -51,6 +52,7 @@ gulp.task("posts", ["stylesheets"], () => {
         style: style
       };
     }))
+    .pipe(prefetchLinks())
     .pipe(layout("./layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("./public/posts"))
