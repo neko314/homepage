@@ -1,0 +1,12 @@
+{
+  "name": "gulp-prefetch-links",
+  "version": "0.1.0",
+  "author": "Naoto Kaneko <naoty.k@gmail.com>",
+  "description": "A gulp plugin to generate prefetch links from anchor tags",
+  "license": "MIT",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "through2": "^2.0.3"
+  }
+}
