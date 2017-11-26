@@ -1,16 +1,17 @@
-let browserSync = require("browser-sync").create();
-let clean       = require("gulp-clean-css");
-let concat      = require("gulp-concat");
-let data        = require("gulp-data");
-let frontMatter = require("gulp-front-matter");
-let fs          = require("fs");
-let gulp        = require("gulp");
-let htmlmin     = require("gulp-htmlmin");
-let index       = require("gulp-ejs-index");
-let layout      = require("gulp-ejs-layout");
-let markdown    = require("gulp-markdown");
-let path        = require("path");
-let sass        = require("gulp-sass");
+let browserSync   = require("browser-sync").create();
+let clean         = require("gulp-clean-css");
+let concat        = require("gulp-concat");
+let data          = require("gulp-data");
+let frontMatter   = require("gulp-front-matter");
+let fs            = require("fs");
+let gulp          = require("gulp");
+let htmlmin       = require("gulp-htmlmin");
+let index         = require("gulp-ejs-index");
+let layout        = require("gulp-ejs-layout");
+let markdown      = require("gulp-markdown");
+let path          = require("path");
+let prefetchLinks = require("gulp-prefetch-links");
+let sass          = require("gulp-sass");
 
 gulp.task("homepage", ["stylesheets"], () => {
   let style = fs.readFileSync("./build/style.css", "utf-8");
@@ -72,6 +73,7 @@ gulp.task("post", ["stylesheets"], () => {
       };
     }))
     .pipe(layout("./layouts/posts/post.ejs", { path: path }))
+    .pipe(prefetchLinks())
     .pipe(layout("./layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("./public/posts"));
