@@ -12,6 +12,9 @@ module.exports = (filename, indexData = {}, options = {}) => {
 
   let index = fs.readFileSync(filename, "utf-8");
   let render = (callback) => {
+    // sorted by mtime in descending order
+    files = files.sort((a, b) => { return b.stat.mtime - a.stat.mtime; });
+
     let data = Object.assign(indexData, { files: files });
     let result = ejs.render(index, data, options);
 
