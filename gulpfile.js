@@ -14,6 +14,8 @@ let path          = require("path");
 let prefetchLinks = require("gulp-prefetch-links");
 let sass          = require("gulp-sass");
 
+gulp.task("default", ["server", "watch"]);
+
 gulp.task("server", ["all"], () => {
   browserSync.init({
     open: false,
