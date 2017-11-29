@@ -22,13 +22,13 @@ gulp.task("default", ["all"], () => {
     }
   });
 
-  gulp.watch("contents/index.md", ["top"]);
-  gulp.watch("contents/posts/*.md", ["posts", "post"]);
-  gulp.watch("layouts/base.ejs", ["top", "posts", "post"]);
-  gulp.watch("layouts/index.ejs", ["top"]);
-  gulp.watch("layouts/posts/index.ejs", ["posts"]);
-  gulp.watch("layouts/posts/post.ejs", ["post"]);
-  gulp.watch("stylesheets/*.sass", ["all"]);
+  gulp.watch("contents/index.md", ["reload-top"]);
+  gulp.watch("contents/posts/*.md", ["reload-posts", "reload-post"]);
+  gulp.watch("layouts/base.ejs", ["reload-top", "reload-posts", "reload-post"]);
+  gulp.watch("layouts/index.ejs", ["reload-top"]);
+  gulp.watch("layouts/posts/index.ejs", ["reload-posts"]);
+  gulp.watch("layouts/posts/post.ejs", ["reload-post"]);
+  gulp.watch("stylesheets/*.sass", ["reload-all"]);
 });
 
 gulp.task("all", ["top", "posts", "post", "style"]);
@@ -89,3 +89,10 @@ gulp.task("style", () => {
     .pipe(clean())
     .pipe(gulp.dest("build"));
 });
+
+for (let taskname of ["all", "top", "posts", "post", "style"]) {
+  gulp.task(`reload-${taskname}`, [taskname], (done) => {
+    browserSync.reload();
+    done();
+  });
+}
