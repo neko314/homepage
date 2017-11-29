@@ -1,9 +1,12 @@
 let config        = require("./config.json");
 let data          = require("gulp-data");
-let htmlmin       = require("gulp-htmlmin");
+let frontMatter   = require("gulp-front-matter");
 let gulp          = require("gulp");
+let htmlmin       = require("gulp-htmlmin");
+let index         = require("gulp-ejs-index");
 let layout        = require("gulp-ejs-layout");
 let markdown      = require("gulp-markdown");
+let path          = require("path");
 let prefetchLinks = require("gulp-prefetch-links");
 
 gulp.task("top", () => {
@@ -15,6 +18,18 @@ gulp.task("top", () => {
     .pipe(layout("layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("public"));
+});
+
+gulp.task("posts", () => {
+  return gulp.src("contents/posts/*.md")
+    .pipe(frontMatter())
+    .pipe(markdown())
+    .pipe(index("layouts/posts/index.ejs", { path: path }))
+    .pipe(data(file => ({ ...config["posts"], style: "" })))
+    .pipe(prefetchLinks())
+    .pipe(layout("layouts/base.ejs"))
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest("public/posts"));
 });
 
 // let clean         = require("gulp-clean-css");

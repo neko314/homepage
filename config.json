@@ -5,5 +5,12 @@
     "pageImage": "/icons/256x256.png",
     "pageTitle": "Naoto Kaneko",
     "path": ""
+  },
+  "posts": {
+    "ogType": "article",
+    "pageDescription": "Naoto Kaneko's posts",
+    "pageImage": "/icons/256x256.png",
+    "pageTitle": "Naoto Kaneko's posts",
+    "path": "/posts/index.html"
   }
 }
