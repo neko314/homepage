@@ -1,3 +1,5 @@
+let clean         = require("gulp-clean-css");
+let concat        = require("gulp-concat");
 let config        = require("./config.json");
 let data          = require("gulp-data");
 let frontMatter   = require("gulp-front-matter");
@@ -8,6 +10,7 @@ let layout        = require("gulp-ejs-layout");
 let markdown      = require("gulp-markdown");
 let path          = require("path");
 let prefetchLinks = require("gulp-prefetch-links");
+let sass          = require("gulp-sass");
 
 gulp.task("top", () => {
   return gulp.src("contents/index.md")
@@ -51,6 +54,14 @@ gulp.task("post", () => {
     .pipe(layout("layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("public/posts"));
+});
+
+gulp.task("style", () => {
+  return gulp.src(["node_modules/ress/ress.css", "stylesheets/*.sass"])
+    .pipe(sass())
+    .pipe(concat("style.css"))
+    .pipe(clean())
+    .pipe(gulp.dest("public"));
 });
 
 // let clean         = require("gulp-clean-css");
