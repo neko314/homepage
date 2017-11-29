@@ -6,8 +6,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "gulp",
-    "server": "gulp server"
+    "build": "gulp all",
+    "server": "gulp"
   },
   "dependencies": {
     "ress": "^1.2.2"
