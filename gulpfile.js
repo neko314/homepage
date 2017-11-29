@@ -13,6 +13,8 @@ let path          = require("path");
 let prefetchLinks = require("gulp-prefetch-links");
 let sass          = require("gulp-sass");
 
+gulp.task("build", ["top", "posts", "post", "style"]);
+
 gulp.task("top", ["style"], () => {
   let style = fs.readFileSync("build/style.css");
 
