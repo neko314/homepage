@@ -83,7 +83,7 @@ gulp.task("post", ["style"], () => {
 });
 
 gulp.task("style", () => {
-  return gulp.src(["node_modules/ress/ress.css", "stylesheets/*.sass"])
+  return gulp.src(["node_modules/ress/ress.css", "stylesheets/style.sass", "stylesheets/large.sass"])
     .pipe(sass())
     .pipe(concat("style.css"))
     .pipe(clean())
