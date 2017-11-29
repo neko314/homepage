@@ -3,6 +3,7 @@ let concat        = require("gulp-concat");
 let config        = require("./config.json");
 let data          = require("gulp-data");
 let frontMatter   = require("gulp-front-matter");
+let fs            = require("fs");
 let gulp          = require("gulp");
 let htmlmin       = require("gulp-htmlmin");
 let index         = require("gulp-ejs-index");
@@ -12,10 +13,12 @@ let path          = require("path");
 let prefetchLinks = require("gulp-prefetch-links");
 let sass          = require("gulp-sass");
 
-gulp.task("top", () => {
+gulp.task("top", ["style"], () => {
+  let style = fs.readFileSync("build/style.css");
+
   return gulp.src("contents/index.md")
     .pipe(markdown())
-    .pipe(data(file => ({ ...config["top"], style: "" })))
+    .pipe(data(file => ({ ...config["top"], style: style })))
     .pipe(layout("layouts/index.ejs"))
     .pipe(prefetchLinks())
     .pipe(layout("layouts/base.ejs"))
@@ -23,26 +26,29 @@ gulp.task("top", () => {
     .pipe(gulp.dest("public"));
 });
 
-gulp.task("posts", () => {
+gulp.task("posts", ["style"], () => {
+  let style = fs.readFileSync("build/style.css");
+
   return gulp.src("contents/posts/*.md")
     .pipe(frontMatter())
     .pipe(markdown())
     .pipe(index("layouts/posts/index.ejs", { path: path }))
-    .pipe(data(file => ({ ...config["posts"], style: "" })))
+    .pipe(data(file => ({ ...config["posts"], style: style })))
     .pipe(prefetchLinks())
     .pipe(layout("layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("public/posts"));
 });
 
-gulp.task("post", () => {
+gulp.task("post", ["style"], () => {
+  let style = fs.readFileSync("build/style.css");
   let postData = file => ({
     ogType: config["post"]["ogType"],
     pageDescription: file.frontMatter.description || config["post"]["pageDescription"],
     pageImage: file.frontMatter.image || config["post"]["pageImage"],
     pageTitle: file.frontMatter.title,
     path: `/posts/${path.basename(file.path)}`,
-    style: ""
+    style: style
   });
 
   return gulp.src("contents/posts/*.md")
@@ -61,7 +67,7 @@ gulp.task("style", () => {
     .pipe(sass())
     .pipe(concat("style.css"))
     .pipe(clean())
-    .pipe(gulp.dest("public"));
+    .pipe(gulp.dest("build"));
 });
 
 // let clean         = require("gulp-clean-css");
