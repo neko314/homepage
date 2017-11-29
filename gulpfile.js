@@ -13,7 +13,17 @@ let path          = require("path");
 let prefetchLinks = require("gulp-prefetch-links");
 let sass          = require("gulp-sass");
 
-gulp.task("build", ["top", "posts", "post", "style"]);
+gulp.task("watch", () => {
+  gulp.watch("contents/index.md", ["top"]);
+  gulp.watch("contents/posts/*.md", ["posts", "post"]);
+  gulp.watch("layouts/base.ejs", ["top", "posts", "post"]);
+  gulp.watch("layouts/index.ejs", ["top"]);
+  gulp.watch("layouts/posts/index.ejs", ["posts"]);
+  gulp.watch("layouts/posts/post.ejs", ["post"]);
+  gulp.watch("stylesheets/*.sass", ["all"]);
+});
+
+gulp.task("all", ["top", "posts", "post", "style"]);
 
 gulp.task("top", ["style"], () => {
   let style = fs.readFileSync("build/style.css");
