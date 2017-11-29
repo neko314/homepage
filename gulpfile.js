@@ -32,6 +32,27 @@ gulp.task("posts", () => {
     .pipe(gulp.dest("public/posts"));
 });
 
+gulp.task("post", () => {
+  let postData = file => ({
+    ogType: config["post"]["ogType"],
+    pageDescription: file.frontMatter.description || config["post"]["pageDescription"],
+    pageImage: file.frontMatter.image || config["post"]["pageImage"],
+    pageTitle: file.frontMatter.title,
+    path: `/posts/${path.basename(file.path)}`,
+    style: ""
+  });
+
+  return gulp.src("contents/posts/*.md")
+    .pipe(frontMatter())
+    .pipe(markdown())
+    .pipe(layout("layouts/posts/post.ejs", { path: path }))
+    .pipe(data(postData))
+    .pipe(prefetchLinks())
+    .pipe(layout("layouts/base.ejs"))
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest("public/posts"));
+});
+
 // let clean         = require("gulp-clean-css");
 // let concat        = require("gulp-concat");
 // let data          = require("gulp-data");
