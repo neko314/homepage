@@ -1,3 +1,4 @@
+let browserSync   = require("browser-sync").create();
 let clean         = require("gulp-clean-css");
 let concat        = require("gulp-concat");
 let config        = require("./config.json");
@@ -12,6 +13,15 @@ let markdown      = require("gulp-markdown");
 let path          = require("path");
 let prefetchLinks = require("gulp-prefetch-links");
 let sass          = require("gulp-sass");
+
+gulp.task("server", ["all"], () => {
+  browserSync.init({
+    open: false,
+    server: {
+      baseDir: "public"
+    }
+  });
+});
 
 gulp.task("watch", () => {
   gulp.watch("contents/index.md", ["top"]);
