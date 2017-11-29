@@ -14,18 +14,14 @@ let path          = require("path");
 let prefetchLinks = require("gulp-prefetch-links");
 let sass          = require("gulp-sass");
 
-gulp.task("default", ["server", "watch"]);
-
-gulp.task("server", ["all"], () => {
+gulp.task("default", ["all"], () => {
   browserSync.init({
     open: false,
     server: {
       baseDir: "public"
     }
   });
-});
 
-gulp.task("watch", () => {
   gulp.watch("contents/index.md", ["top"]);
   gulp.watch("contents/posts/*.md", ["posts", "post"]);
   gulp.watch("layouts/base.ejs", ["top", "posts", "post"]);
