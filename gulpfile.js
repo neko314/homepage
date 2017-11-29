@@ -1,3 +1,22 @@
+let config        = require("./config.json");
+let data          = require("gulp-data");
+let htmlmin       = require("gulp-htmlmin");
+let gulp          = require("gulp");
+let layout        = require("gulp-ejs-layout");
+let markdown      = require("gulp-markdown");
+let prefetchLinks = require("gulp-prefetch-links");
+
+gulp.task("top", () => {
+  return gulp.src("contents/index.md")
+    .pipe(markdown())
+    .pipe(data(file => ({ ...config["top"], style: "" })))
+    .pipe(layout("layouts/index.ejs"))
+    .pipe(prefetchLinks())
+    .pipe(layout("layouts/base.ejs"))
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest("public"));
+});
+
 // let clean         = require("gulp-clean-css");
 // let concat        = require("gulp-concat");
 // let data          = require("gulp-data");
