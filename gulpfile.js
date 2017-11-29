@@ -1,4 +1,3 @@
-let browserSync   = require("browser-sync").create();
 let clean         = require("gulp-clean-css");
 let concat        = require("gulp-concat");
 let data          = require("gulp-data");
@@ -93,24 +92,15 @@ gulp.task("stylesheets", () => {
     .pipe(concat("style.css"))
     .pipe(clean())
     .pipe(gulp.dest("./build"))
-    .pipe(browserSync.stream());
-});
-
-gulp.task("browser-sync", () => {
-  browserSync.init({
-    server: {
-      baseDir: "./public"
-    }
-  })
 });
 
 gulp.task("default", ["homepage", "post", "posts"]);
 
 gulp.task("server", ["default", "browser-sync"], () => {
-  gulp.watch("./contents/index.md", ["homepage"]).on("change", browserSync.reload);
-  gulp.watch("./contents/posts/*.md", ["post", "posts"]).on("change", browserSync.reload);
-  gulp.watch("./layouts/index.ejs", ["homepage"]).on("change", browserSync.reload);
-  gulp.watch("./layouts/posts/post.ejs", ["post"]).on("change", browserSync.reload);
-  gulp.watch("./layouts/posts/index.ejs", ["posts"]).on("change", browserSync.reload);
+  gulp.watch("./contents/index.md", ["homepage"]);
+  gulp.watch("./contents/posts/*.md", ["post", "posts"]);
+  gulp.watch("./layouts/index.ejs", ["homepage"]);
+  gulp.watch("./layouts/posts/post.ejs", ["post"]);
+  gulp.watch("./layouts/posts/index.ejs", ["posts"]);
   gulp.watch("./stylesheets/**/*.sass", ["stylesheets"]);
 });
