@@ -87,7 +87,14 @@ gulp.task("post", ["style"], () => {
 });
 
 gulp.task("style", () => {
-  return gulp.src(["node_modules/ress/ress.css", "stylesheets/style.sass", "stylesheets/large.sass"])
+  let srcFiles = [
+    "node_modules/ress/ress.css",
+    "node_modules/highlight.js/styles/solarized-dark.css",
+    "stylesheets/style.sass",
+    "stylesheets/large.sass"
+  ];
+
+  return gulp.src(srcFiles)
     .pipe(sass())
     .pipe(concat("style.css"))
     .pipe(clean())
