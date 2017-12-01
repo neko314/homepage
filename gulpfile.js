@@ -6,6 +6,7 @@ let data          = require("gulp-data");
 let frontMatter   = require("gulp-front-matter");
 let fs            = require("fs");
 let gulp          = require("gulp");
+let highlight     = require("highlight.js");
 let htmlmin       = require("gulp-htmlmin");
 let index         = require("gulp-ejs-index");
 let layout        = require("gulp-ejs-layout");
@@ -70,10 +71,13 @@ gulp.task("post", ["style"], () => {
     path: `/posts/${path.basename(file.path)}`,
     style: style
   });
+  let highlightCode = code => {
+    return highlight.highlightAuto(code).value;
+  }
 
   return gulp.src("contents/posts/*.md")
     .pipe(frontMatter())
-    .pipe(markdown())
+    .pipe(markdown({ highlight: highlightCode }))
     .pipe(layout("layouts/posts/post.ejs", { path: path }))
     .pipe(data(postData))
     .pipe(prefetchLinks())
