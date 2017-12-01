@@ -4,7 +4,7 @@
   </header>
   <ul class="posts-list">
     <% for (let file of files) { %>
-    <li><a href="/posts/<%= path.basename(file.path) %>"><%= file.frontMatter.title %></a> (<%= file.stat.mtime.toLocaleString() %>)</li>
+    <li><a href="/posts/<%= path.basename(file.path) %>"><%= file.frontMatter.title %></a> (<%= DateTime.fromJSDate(file.stat.mtime).toFormat("yyyy-MM-dd HH:mm:ss") %>)</li>
     <% } %>
   </ul>
   <footer class="posts-footer">

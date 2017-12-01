@@ -1,7 +1,7 @@
 <article>
   <header class="post-header">
     <h1 class="post-title"><%= file.frontMatter.title %></h1>
-    <p class="post-metadata">公開：<time datetime="<%= file.stat.mtime.toISOString() %>"><%= file.stat.mtime.toLocaleString() %></time></p>
+    <p class="post-metadata">公開：<time datetime="<%= publishTime.toISO() %>"><%= publishTime.toFormat("yyyy-MM-dd HH:mm:ss") %></time></p>
   </header>
   <section class="post-content">
     <%- content %>

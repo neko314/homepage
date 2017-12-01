@@ -3,6 +3,7 @@ let clean         = require("gulp-clean-css");
 let concat        = require("gulp-concat");
 let config        = require("./config.json");
 let data          = require("gulp-data");
+let DateTime      = require("luxon").DateTime;
 let frontMatter   = require("gulp-front-matter");
 let fs            = require("fs");
 let gulp          = require("gulp");
@@ -53,7 +54,7 @@ gulp.task("posts", ["style"], () => {
   return gulp.src("contents/posts/*.md")
     .pipe(frontMatter())
     .pipe(markdown())
-    .pipe(index("layouts/posts/index.ejs", { path: path }))
+    .pipe(index("layouts/posts/index.ejs", { DateTime: DateTime, path: path }))
     .pipe(data(file => ({ ...config["posts"], style: style })))
     .pipe(prefetchLinks())
     .pipe(layout("layouts/base.ejs"))
@@ -73,14 +74,15 @@ gulp.task("post", ["style"], () => {
     pageImage: file.frontMatter.image || config["post"]["pageImage"],
     pageTitle: file.frontMatter.title,
     path: `/posts/${path.basename(file.path)}`,
+    publishTime: DateTime.fromJSDate(file.stat.mtime),
     style: style
   });
 
   return gulp.src("contents/posts/*.md")
     .pipe(frontMatter())
     .pipe(markdown(markdownOptions))
-    .pipe(layout("layouts/posts/post.ejs", { path: path }))
     .pipe(data(postData))
+    .pipe(layout("layouts/posts/post.ejs"))
     .pipe(prefetchLinks())
     .pipe(layout("layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
