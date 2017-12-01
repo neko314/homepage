@@ -63,6 +63,10 @@ gulp.task("posts", ["style"], () => {
 
 gulp.task("post", ["style"], () => {
   let style = fs.readFileSync("build/style.css");
+  let markdownOptions = {
+    highlight: code => highlight.highlightAuto(code).value,
+    langPrefix: "hljs "
+  };
   let postData = file => ({
     ogType: config["post"]["ogType"],
     pageDescription: file.frontMatter.description || config["post"]["pageDescription"],
@@ -71,13 +75,10 @@ gulp.task("post", ["style"], () => {
     path: `/posts/${path.basename(file.path)}`,
     style: style
   });
-  let highlightCode = code => {
-    return highlight.highlightAuto(code).value;
-  }
 
   return gulp.src("contents/posts/*.md")
     .pipe(frontMatter())
-    .pipe(markdown({ highlight: highlightCode }))
+    .pipe(markdown(markdownOptions))
     .pipe(layout("layouts/posts/post.ejs", { path: path }))
     .pipe(data(postData))
     .pipe(prefetchLinks())
