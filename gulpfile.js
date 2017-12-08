@@ -15,6 +15,7 @@ let markdown      = require("gulp-markdown");
 let path          = require("path");
 let prefetchLinks = require("gulp-prefetch-links");
 let sass          = require("gulp-sass");
+let sort          = require("gulp-sort");
 
 gulp.task("default", ["all"], () => {
   browserSync.init({
@@ -60,6 +61,7 @@ gulp.task("posts", ["style"], () => {
     .pipe(frontMatter())
     .pipe(markdown())
     .pipe(data(postData))
+    .pipe(sort((file1, file2) => file2.data.time - file1.data.time ))
     .pipe(index("layouts/posts/index.ejs"))
     .pipe(data(file => ({ ...config["posts"], style: style })))
     .pipe(prefetchLinks())

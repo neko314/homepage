@@ -25,6 +25,7 @@
     "gulp-markdown": "^1.2.0",
     "gulp-prefetch-links": "file:lib/gulp-prefetch-links",
     "gulp-sass": "^3.1.0",
+    "gulp-sort": "^2.0.0",
     "gulp-sourcemaps": "^2.6.1",
     "highlight.js": "^9.12.0",
     "luxon": "^0.2.3"
