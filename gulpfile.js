@@ -50,11 +50,17 @@ gulp.task("top", ["style"], () => {
 
 gulp.task("posts", ["style"], () => {
   let style = fs.readFileSync("build/style.css");
+  let postData = file => ({
+    postPath: `/posts/${path.basename(file.path)}`,
+    time: DateTime.fromISO(file.frontMatter.time),
+    title: file.frontMatter.title
+  });
 
   return gulp.src("contents/posts/*.md")
     .pipe(frontMatter())
     .pipe(markdown())
-    .pipe(index("layouts/posts/index.ejs", { DateTime: DateTime, path: path }))
+    .pipe(data(postData))
+    .pipe(index("layouts/posts/index.ejs"))
     .pipe(data(file => ({ ...config["posts"], style: style })))
     .pipe(prefetchLinks())
     .pipe(layout("layouts/base.ejs"))
@@ -74,8 +80,8 @@ gulp.task("post", ["style"], () => {
     pageImage: file.frontMatter.image || config["post"]["pageImage"],
     pageTitle: file.frontMatter.title,
     path: `/posts/${path.basename(file.path)}`,
-    publishTime: DateTime.fromJSDate(file.stat.mtime),
-    style: style
+    style: style,
+    time: DateTime.fromISO(file.frontMatter.time)
   });
 
   return gulp.src("contents/posts/*.md")
