@@ -19,9 +19,11 @@ jobs:
       - run: npm run build
       - run:
           name: Publish GitHub pages
+          shell: /bin/bash
           command: |
             cp -r public/* ~/naoty.github.io/
             cd ~/naoty.github.io
             git add .
             git commit -m "Publish naoty/homepage@${CIRCLE_SHA1}"
             git push origin master
+            exit 0
