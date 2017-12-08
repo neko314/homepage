@@ -3,6 +3,8 @@ jobs:
   build:
     docker:
       - image: circleci/node
+        environment:
+          TZ: /usr/share/zoneinfo/Asia/Tokyo
     steps:
       - run:
           name: SSH settings
