@@ -7,7 +7,6 @@ let DateTime      = require("luxon").DateTime;
 let frontMatter   = require("gulp-front-matter");
 let fs            = require("fs");
 let gulp          = require("gulp");
-let highlight     = require("highlight.js");
 let htmlmin       = require("gulp-htmlmin");
 let index         = require("gulp-ejs-index");
 let layout        = require("gulp-ejs-layout");
@@ -72,10 +71,6 @@ gulp.task("posts", ["style"], () => {
 
 gulp.task("post", ["style"], () => {
   let style = fs.readFileSync("build/style.css");
-  let markdownOptions = {
-    highlight: code => highlight.highlightAuto(code).value,
-    langPrefix: "hljs "
-  };
   let postData = file => ({
     ogType: config["post"]["ogType"],
     pageDescription: file.frontMatter.description || config["post"]["pageDescription"],
@@ -88,7 +83,7 @@ gulp.task("post", ["style"], () => {
 
   return gulp.src("contents/posts/*.md")
     .pipe(frontMatter())
-    .pipe(markdown(markdownOptions))
+    .pipe(markdown())
     .pipe(data(postData))
     .pipe(layout("layouts/posts/post.ejs"))
     .pipe(prefetchLinks())
@@ -100,7 +95,6 @@ gulp.task("post", ["style"], () => {
 gulp.task("style", () => {
   let srcFiles = [
     "node_modules/ress/ress.css",
-    "node_modules/highlight.js/styles/solarized-dark.css",
     "stylesheets/style.sass",
     "stylesheets/large.sass"
   ];
