@@ -89,9 +89,8 @@ gulp.task("post", ["style"], () => {
     .pipe(markdown())
     .pipe(rename({ extname: ".html" }))
     .pipe(data(postData))
-    .pipe(layout("layouts/posts/post.ejs"))
     .pipe(prefetchLinks())
-    .pipe(layout("layouts/base.ejs"))
+    .pipe(layout("layouts/posts/post.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("public/posts"));
 });

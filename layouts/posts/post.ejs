@@ -1,14 +1,59 @@
-<article>
-  <header class="post-header">
-    <h1 class="post-title"><%= file.frontMatter.title %></h1>
-    <p class="post-metadata">公開：<time datetime="<%= file.data.time.toISO() %>"><%= file.data.time.toFormat("yyyy-MM-dd HH:mm:ss") %></time></p>
-  </header>
-  <section class="post-content">
-    <%- content %>
-  </section>
-  <footer class="post-footer">
-    <p>
-      <a href="/">トップ</a> | <a href="/posts/">一覧</a>
-    </p>
-  </footer>
-</article>
+
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110417654-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-110417654-1');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= pageTitle %></title>
+    <meta name="description" content="<%= pageDescription %>">
+    <meta name="theme-color" content="white">
+    <meta property="og:title" content="<%= pageTitle %>">
+    <meta property="og:type" content="<%= ogType %>">
+    <meta property="og:image" content="https://naoty.github.io<%= pageImage %>">
+    <meta property="og:url" content="https://naoty.github.io<%= path %>">
+    <meta property="og:description" content="<%= pageDescription %>">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:site" content="@naoty_k">
+    <meta property="twitter:title" content="<%= pageTitle %>">
+    <meta property="twitter:description" content="<%= pageDescription %>">
+    <meta property="twitter:image" content="https://naoty.github.io<%= pageImage %>">
+    <link rel="icon" type="image/png" href="/icons/favicon.png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <%- prefetchLinks %>
+    <style><%- style %></style>
+  </head>
+  <body>
+    <div class="container">
+      <main>
+        <article>
+          <header class="post-header">
+            <h1 class="post-title"><%= file.frontMatter.title %></h1>
+            <p class="post-metadata">公開：<time datetime="<%= file.data.time.toISO() %>"><%= file.data.time.toFormat("yyyy-MM-dd HH:mm:ss") %></time></p>
+          </header>
+          <section class="post-content">
+            <%- content %>
+          </section>
+          <footer class="post-footer">
+            <p>
+              <a href="/">トップ</a> | <a href="/posts/">一覧</a>
+            </p>
+          </footer>
+        </article>
+      </main>
+      <footer class="container-footer">
+        <p>
+          © 2017 Naoto Kaneko
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
