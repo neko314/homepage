@@ -51,7 +51,6 @@ gulp.task("top", ["style"], () => {
 });
 
 gulp.task("posts", ["style"], () => {
-  let style = fs.readFileSync("build/style.css");
   let postData = file => ({
     postPath: `/posts/${path.basename(file.path)}`,
     time: DateTime.fromISO(file.frontMatter.time),
@@ -65,9 +64,6 @@ gulp.task("posts", ["style"], () => {
     .pipe(data(postData))
     .pipe(sort((file1, file2) => file2.data.time - file1.data.time ))
     .pipe(index("layouts/posts/index.ejs"))
-    .pipe(data(file => ({ ...config["posts"], style: style })))
-    .pipe(prefetchLinks())
-    .pipe(layout("layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("public/posts"));
 });
