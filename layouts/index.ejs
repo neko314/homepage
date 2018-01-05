@@ -1,4 +1,47 @@
-<h1 class="homepage-title">Naoto Kaneko</h1>
-<section class="homepage-content">
-  <%- content %>
-</section>
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110417654-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-110417654-1');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= pageTitle %></title>
+    <meta name="description" content="<%= pageDescription %>">
+    <meta name="theme-color" content="white">
+    <meta property="og:title" content="<%= pageTitle %>">
+    <meta property="og:type" content="<%= ogType %>">
+    <meta property="og:image" content="https://naoty.github.io<%= pageImage %>">
+    <meta property="og:url" content="https://naoty.github.io<%= path %>">
+    <meta property="og:description" content="<%= pageDescription %>">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:site" content="@naoty_k">
+    <meta property="twitter:title" content="<%= pageTitle %>">
+    <meta property="twitter:description" content="<%= pageDescription %>">
+    <meta property="twitter:image" content="https://naoty.github.io<%= pageImage %>">
+    <link rel="icon" type="image/png" href="/icons/favicon.png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <style><%- style %></style>
+  </head>
+  <body>
+    <div class="container">
+      <main>
+        <h1 class="homepage-title">Naoto Kaneko</h1>
+        <section class="homepage-content">
+          <%- content %>
+        </section>
+      </main>
+      <footer class="container-footer">
+        <p>
+          © 2017 Naoto Kaneko
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

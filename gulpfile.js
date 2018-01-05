@@ -44,8 +44,6 @@ gulp.task("top", ["style"], () => {
     .pipe(rename({ extname: ".html" }))
     .pipe(data(file => ({ ...config["top"], style: style })))
     .pipe(layout("layouts/index.ejs"))
-    .pipe(prefetchLinks())
-    .pipe(layout("layouts/base.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("public"));
 });
