@@ -37,12 +37,9 @@ gulp.task("default", ["all"], () => {
 gulp.task("all", ["top", "posts", "post", "style"]);
 
 gulp.task("top", ["style"], () => {
-  let style = fs.readFileSync("build/style.css");
-
   return gulp.src("contents/index.md")
     .pipe(markdown())
     .pipe(rename({ extname: ".html" }))
-    .pipe(data(file => ({ style: style })))
     .pipe(layout("layouts/index.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("public"));
@@ -67,13 +64,11 @@ gulp.task("posts", ["style"], () => {
 });
 
 gulp.task("post", ["style"], () => {
-  let style = fs.readFileSync("build/style.css");
   let postData = file => ({
     pageDescription: file.frontMatter.description || config["post"]["pageDescription"],
     pageImage: file.frontMatter.image || config["post"]["pageImage"],
     pageTitle: file.frontMatter.title,
     path: `/posts/${path.basename(file.path)}`,
-    style: style,
     time: DateTime.fromISO(file.frontMatter.time)
   });
 
@@ -96,9 +91,9 @@ gulp.task("style", () => {
 
   return gulp.src(srcFiles)
     .pipe(sass())
-    .pipe(concat("style.css"))
+    .pipe(concat("main.css"))
     .pipe(clean())
-    .pipe(gulp.dest("build"));
+    .pipe(gulp.dest("public/stylesheets"));
 });
 
 for (let taskname of ["all", "top", "posts", "post", "style"]) {
