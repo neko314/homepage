@@ -1,18 +1,4 @@
 {
-  "top": {
-    "ogType": "profile",
-    "pageDescription": "Naoto Kaneko's homepage",
-    "pageImage": "/icons/256x256.png",
-    "pageTitle": "Naoto Kaneko",
-    "path": ""
-  },
-  "posts": {
-    "ogType": "article",
-    "pageDescription": "Naoto Kaneko's posts",
-    "pageImage": "/icons/256x256.png",
-    "pageTitle": "Naoto Kaneko's posts",
-    "path": "/posts/index.html"
-  },
   "post": {
     "pageDescription": "Naoto Kaneko's post",
     "pageImage": "/icons/256x256.png"

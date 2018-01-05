@@ -42,7 +42,7 @@ gulp.task("top", ["style"], () => {
   return gulp.src("contents/index.md")
     .pipe(markdown())
     .pipe(rename({ extname: ".html" }))
-    .pipe(data(file => ({ ...config["top"], style: style })))
+    .pipe(data(file => ({ style: style })))
     .pipe(layout("layouts/index.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("public"));
