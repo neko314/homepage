@@ -75,7 +75,6 @@ gulp.task("posts", ["style"], () => {
 gulp.task("post", ["style"], () => {
   let style = fs.readFileSync("build/style.css");
   let postData = file => ({
-    ogType: config["post"]["ogType"],
     pageDescription: file.frontMatter.description || config["post"]["pageDescription"],
     pageImage: file.frontMatter.image || config["post"]["pageImage"],
     pageTitle: file.frontMatter.title,
