@@ -13,6 +13,7 @@ let layout        = require("gulp-ejs-layout");
 let markdown      = require("gulp-markdown");
 let path          = require("path");
 let prefetchLinks = require("gulp-prefetch-links");
+let rename        = require("gulp-rename");
 let sass          = require("gulp-sass");
 let sort          = require("gulp-sort");
 
@@ -40,6 +41,7 @@ gulp.task("top", ["style"], () => {
 
   return gulp.src("contents/index.md")
     .pipe(markdown())
+    .pipe(rename({ extname: ".html" }))
     .pipe(data(file => ({ ...config["top"], style: style })))
     .pipe(layout("layouts/index.ejs"))
     .pipe(prefetchLinks())
@@ -59,6 +61,7 @@ gulp.task("posts", ["style"], () => {
   return gulp.src("contents/posts/*.md")
     .pipe(frontMatter())
     .pipe(markdown())
+    .pipe(rename({ extname: ".html" }))
     .pipe(data(postData))
     .pipe(sort((file1, file2) => file2.data.time - file1.data.time ))
     .pipe(index("layouts/posts/index.ejs"))
@@ -84,6 +87,7 @@ gulp.task("post", ["style"], () => {
   return gulp.src("contents/posts/*.md")
     .pipe(frontMatter())
     .pipe(markdown())
+    .pipe(rename({ extname: ".html" }))
     .pipe(data(postData))
     .pipe(layout("layouts/posts/post.ejs"))
     .pipe(prefetchLinks())
