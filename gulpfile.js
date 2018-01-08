@@ -10,6 +10,7 @@ let gulp          = require("gulp");
 let htmlmin       = require("gulp-htmlmin");
 let index         = require("gulp-ejs-index");
 let layout        = require("gulp-ejs-layout");
+let mathjax       = require("gulp-mathjax-node");
 let markdown      = require("gulp-markdown");
 let path          = require("path");
 let prefetchLinks = require("gulp-prefetch-links");
@@ -75,6 +76,7 @@ gulp.task("post", ["style"], () => {
   return gulp.src("contents/posts/*.md")
     .pipe(frontMatter())
     .pipe(markdown())
+    .pipe(mathjax())
     .pipe(rename({ extname: ".html" }))
     .pipe(data(postData))
     .pipe(layout("layouts/posts/post.ejs"))
