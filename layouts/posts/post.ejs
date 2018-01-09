@@ -31,14 +31,14 @@
     <link rel="stylesheet" href="/stylesheets/main.css">
   </head>
   <body>
-    <div class="container">
+    <div class="container" itemscope itemtype="http://schema.org/BlogPosting">
       <main>
         <article>
           <header class="post-header">
-            <h1 class="post-title"><%= pageTitle %></h1>
-            <p class="post-metadata">公開：<time datetime="<%= time.toISO() %>"><%= time.toFormat("yyyy-MM-dd HH:mm:ss") %></time></p>
+            <h1 class="post-title" itemprop="mainEntityOfPage headline"><%= pageTitle %></h1>
+            <p class="post-metadata">公開：<time datetime="<%= time.toISO() %>" itemprop="datePublished dateModified"><%= time.toFormat("yyyy-MM-dd HH:mm:ss") %></time></p>
           </header>
-          <section class="post-content">
+          <section class="post-content" itemprop="articleBody">
             <%- content %>
           </section>
           <footer class="post-footer">
@@ -50,7 +50,7 @@
       </main>
       <footer class="container-footer">
         <p>
-          © 2017 Naoto Kaneko
+          © 2017 <span itemprop="author">Naoto Kaneko</span>
         </p>
       </footer>
     </div>
