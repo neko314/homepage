@@ -28,10 +28,9 @@ gulp.task("default", ["all"], () => {
 
   gulp.watch("contents/index.md", ["reload-top"]);
   gulp.watch("contents/posts/*.md", ["reload-posts", "reload-post"]);
-  gulp.watch("layouts/base.ejs", ["reload-top", "reload-posts", "reload-post"]);
-  gulp.watch("layouts/index.ejs", ["reload-top"]);
-  gulp.watch("layouts/posts/index.ejs", ["reload-posts"]);
-  gulp.watch("layouts/posts/post.ejs", ["reload-post"]);
+  gulp.watch("layouts/index.html.ejs", ["reload-top"]);
+  gulp.watch("layouts/posts/index.html.ejs", ["reload-posts"]);
+  gulp.watch("layouts/posts/post.html.ejs", ["reload-post"]);
   gulp.watch("stylesheets/*.sass", ["reload-all"]);
 });
 
@@ -41,7 +40,7 @@ gulp.task("top", ["style"], () => {
   return gulp.src("contents/index.md")
     .pipe(markdown())
     .pipe(rename({ extname: ".html" }))
-    .pipe(layout("layouts/index.ejs"))
+    .pipe(layout("layouts/index.html.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("public"));
 });
@@ -59,7 +58,7 @@ gulp.task("posts", ["style"], () => {
     .pipe(rename({ extname: ".html" }))
     .pipe(data(postData))
     .pipe(sort((file1, file2) => file2.data.time - file1.data.time ))
-    .pipe(index("layouts/posts/index.ejs"))
+    .pipe(index("layouts/posts/index.html.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("public/posts"));
 });
@@ -79,7 +78,7 @@ gulp.task("post", ["style"], () => {
     .pipe(mathjax())
     .pipe(rename({ extname: ".html" }))
     .pipe(data(postData))
-    .pipe(layout("layouts/posts/post.ejs"))
+    .pipe(layout("layouts/posts/post.html.ejs"))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("public/posts"));
 });
