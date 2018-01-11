@@ -27,14 +27,15 @@ gulp.task("default", ["all"], () => {
   });
 
   gulp.watch("contents/index.md", ["reload-top"]);
-  gulp.watch("contents/posts/*.md", ["reload-posts", "reload-post"]);
+  gulp.watch("contents/posts/*.md", ["reload-posts", "reload-post", "reload-feed"]);
   gulp.watch("layouts/index.html.ejs", ["reload-top"]);
+  gulp.watch("layouts/posts/index.atom.ejs", ["reload-feed"]);
   gulp.watch("layouts/posts/index.html.ejs", ["reload-posts"]);
   gulp.watch("layouts/posts/post.html.ejs", ["reload-post"]);
   gulp.watch("stylesheets/*.sass", ["reload-all"]);
 });
 
-gulp.task("all", ["top", "posts", "post", "style"]);
+gulp.task("all", ["top", "posts", "post", "style", "feed"]);
 
 gulp.task("top", ["style"], () => {
   return gulp.src("contents/index.md")
@@ -97,7 +98,24 @@ gulp.task("style", () => {
     .pipe(gulp.dest("public/stylesheets"));
 });
 
-for (let taskname of ["all", "top", "posts", "post", "style"]) {
+gulp.task("feed", () => {
+  let postData = file => ({
+    summary: file.frontMatter.description || file.frontMatter.title,
+    time: DateTime.fromISO(file.frontMatter.time),
+    title: file.frontMatter.title,
+    url: `https://naoty.github.io/posts/${path.basename(file.path)}`
+  });
+
+  return gulp.src("contents/posts/*.md")
+    .pipe(frontMatter())
+    .pipe(data(postData))
+    .pipe(sort((file1, file2) => file2.data.time - file1.data.time))
+    .pipe(index("layouts/posts/index.atom.ejs"))
+    .pipe(rename({ extname: ".atom" }))
+    .pipe(gulp.dest("public/posts"))
+});
+
+for (let taskname of ["all", "top", "posts", "post", "style", "feed"]) {
   gulp.task(`reload-${taskname}`, [taskname], (done) => {
     browserSync.reload();
     done();

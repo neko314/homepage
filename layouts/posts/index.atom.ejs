@@ -1,17 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <id>https://naoty.github.io/posts/index.atom</id>
   <title>Naoto Kaneko's posts</title>
-  <updated>2018-01-11T22:10:00+09:00</updated>
+  <updated><%- files[0].data.time.toISO() %></updated>
   <link rel="self" href="https://naoty.github.io/posts/index.atom"/>
   <author>
     <name>Naoto Kaneko</name>
   </author>
+  <% for (let file of files) { %>
   <entry>
-    <title>Atomフィードに対応した</title>
-    <link rel="alternate" href="https://naoty.github.io/posts/13.html"/>
-    <id>https://naoty.github.io/posts/13.html</id>
-    <updated>2018-01-11T22:10:00+09:00</updated>
-    <summary>Atomフィードに対応した</summary>
+    <title><%- file.data.title %></title>
+    <link rel="alternate" href="<%- file.data.url %>"/>
+    <id><%- file.data.url %></id>
+    <updated><%- file.data.time.toISO() %></updated>
+    <summary><%- file.data.summary %></summary>
   </entry>
+  <% } %>
 </feed>
