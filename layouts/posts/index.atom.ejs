@@ -13,7 +13,11 @@
     <link rel="alternate" href="<%- file.data.url %>"/>
     <id><%- file.data.url %></id>
     <updated><%- file.data.time.toISO() %></updated>
-    <summary><%- file.data.summary %></summary>
+    <content type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <%- file.contents.toString() %>
+      </div>
+    </content>
   </entry>
   <% } %>
 </feed>
