@@ -24,6 +24,7 @@
     "gulp-htmlmin": "^3.0.0",
     "gulp-markdown": "^2.0.1",
     "gulp-mathjax-node": "^1.1.1",
+    "gulp-postcss": "^7.0.1",
     "gulp-prefetch-links": "file:lib/gulp-prefetch-links",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
