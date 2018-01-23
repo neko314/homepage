@@ -13,6 +13,7 @@ let layout        = require("gulp-ejs-layout");
 let mathjax       = require("gulp-mathjax-node");
 let markdown      = require("gulp-markdown");
 let path          = require("path");
+let postcss       = require("gulp-postcss");
 let prefetchLinks = require("gulp-prefetch-links");
 let rename        = require("gulp-rename");
 let sass          = require("gulp-sass");
@@ -96,6 +97,12 @@ gulp.task("style", () => {
     .pipe(concat("main.css"))
     .pipe(clean())
     .pipe(gulp.dest("public/stylesheets"));
+});
+
+gulp.task("stylesheets", () => {
+  return gulp.src("stylesheets/*.css")
+    .pipe(postcss())
+    .pipe(gulp.dest("public/stylesheets"))
 });
 
 gulp.task("feed", () => {
