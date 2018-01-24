@@ -1,6 +1,4 @@
 let browserSync   = require("browser-sync").create();
-let clean         = require("gulp-clean-css");
-let concat        = require("gulp-concat");
 let config        = require("./config.json");
 let data          = require("gulp-data");
 let DateTime      = require("luxon").DateTime;
@@ -16,7 +14,6 @@ let path          = require("path");
 let postcss       = require("gulp-postcss");
 let prefetchLinks = require("gulp-prefetch-links");
 let rename        = require("gulp-rename");
-let sass          = require("gulp-sass");
 let sort          = require("gulp-sort");
 
 gulp.task("default", ["all"], () => {
@@ -33,7 +30,7 @@ gulp.task("default", ["all"], () => {
   gulp.watch("layouts/posts/index.atom.ejs", ["reload-feed"]);
   gulp.watch("layouts/posts/index.html.ejs", ["reload-posts"]);
   gulp.watch("layouts/posts/post.html.ejs", ["reload-post"]);
-  gulp.watch("stylesheets/*.sass", ["reload-all"]);
+  gulp.watch("stylesheets/*.css", ["reload-all"]);
 });
 
 gulp.task("all", ["top", "posts", "post", "style", "feed"]);
