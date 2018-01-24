@@ -1,0 +1,64 @@
+html {
+  font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  & a {
+    text-decoration: none;
+  }
+}
+
+p {
+  line-height: 2;
+}
+
+ol,
+ul {
+  margin-left: 2rem;
+}
+
+li {
+  line-height: 2;
+}
+
+code {
+  font-family: "Courier New", monospace;
+}
+
+pre {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  overflow: auto;
+}
+
+table {
+  border: 1px solid #333;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  border: 1px solid #333;
+}
+
+th {
+  background-color: #f0f0f0;
+}
