@@ -1,20 +1,20 @@
-let browserSync   = require("browser-sync").create();
-let config        = require("./config.json");
-let data          = require("gulp-data");
-let DateTime      = require("luxon").DateTime;
-let frontMatter   = require("gulp-front-matter");
-let fs            = require("fs");
-let gulp          = require("gulp");
-let htmlmin       = require("gulp-htmlmin");
-let index         = require("gulp-ejs-index");
-let layout        = require("gulp-ejs-layout");
-let mathjax       = require("gulp-mathjax-node");
-let markdown      = require("gulp-markdown");
-let path          = require("path");
-let postcss       = require("gulp-postcss");
-let prefetchLinks = require("gulp-prefetch-links");
-let rename        = require("gulp-rename");
-let sort          = require("gulp-sort");
+const browserSync   = require("browser-sync").create();
+const config        = require("./config.json");
+const data          = require("gulp-data");
+const DateTime      = require("luxon").DateTime;
+const frontMatter   = require("gulp-front-matter");
+const fs            = require("fs");
+const gulp          = require("gulp");
+const htmlmin       = require("gulp-htmlmin");
+const index         = require("gulp-ejs-index");
+const layout        = require("gulp-ejs-layout");
+const mathjax       = require("gulp-mathjax-node");
+const markdown      = require("gulp-markdown");
+const path          = require("path");
+const postcss       = require("gulp-postcss");
+const prefetchLinks = require("gulp-prefetch-links");
+const rename        = require("gulp-rename");
+const sort          = require("gulp-sort");
 
 gulp.task("default", ["all"], () => {
   browserSync.init({
@@ -45,7 +45,7 @@ gulp.task("top", ["style"], () => {
 });
 
 gulp.task("posts", ["style"], () => {
-  let postData = file => ({
+  const postData = file => ({
     postPath: `/posts/${path.basename(file.path)}`,
     time: DateTime.fromISO(file.frontMatter.time),
     title: file.frontMatter.title
@@ -63,7 +63,7 @@ gulp.task("posts", ["style"], () => {
 });
 
 gulp.task("post", ["style"], () => {
-  let postData = file => ({
+  const postData = file => ({
     pageDescription: file.frontMatter.description || config["post"]["pageDescription"],
     pageImage: file.frontMatter.image || config["post"]["pageImage"],
     pageTitle: file.frontMatter.title,
@@ -89,7 +89,7 @@ gulp.task("style", () => {
 });
 
 gulp.task("feed", () => {
-  let postData = file => ({
+  const postData = file => ({
     summary: file.frontMatter.description || file.frontMatter.title,
     time: DateTime.fromISO(file.frontMatter.time),
     title: file.frontMatter.title,
@@ -106,7 +106,7 @@ gulp.task("feed", () => {
     .pipe(gulp.dest("public/posts"))
 });
 
-for (let taskname of ["all", "top", "posts", "post", "style", "feed"]) {
+for (const taskname of ["all", "top", "posts", "post", "style", "feed"]) {
   gulp.task(`reload-${taskname}`, [taskname], (done) => {
     browserSync.reload();
     done();
