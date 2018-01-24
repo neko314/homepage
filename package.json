@@ -9,10 +9,14 @@
     "build": "gulp all",
     "server": "gulp"
   },
+  "browserslist": [
+    "> 5%"
+  ],
   "dependencies": {
     "ress": "^1.2.2"
   },
   "devDependencies": {
+    "autoprefixer": "^7.2.5",
     "browser-sync": "^2.23.2",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.9.2",
