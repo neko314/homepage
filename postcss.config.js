@@ -2,6 +2,7 @@ module.exports = {
   plugins: {
     "stylelint": {},
     "postcss-import": {},
-    "postcss-cssnext": {}
+    "postcss-cssnext": {},
+    "cssnano": {}
   }
 };
