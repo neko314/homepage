@@ -1,13 +1,10 @@
 # Homepage
 
-## Preview
+Homepage builder for https://naoty.github.io
 
-```sh
+## Development
+
+```shell-session
+$ npm install
 $ npm run server
-```
-
-## Deploy
-
-```sh
-$ ./deploy
 ```
