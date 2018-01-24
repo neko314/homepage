@@ -16,7 +16,6 @@
     "ress": "^1.2.2"
   },
   "devDependencies": {
-    "autoprefixer": "^7.2.5",
     "browser-sync": "^2.23.2",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.9.2",
@@ -34,6 +33,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sort": "^2.0.0",
     "gulp-sourcemaps": "^2.6.3",
-    "luxon": "^0.2.11"
+    "luxon": "^0.2.11",
+    "postcss-cssnext": "^3.1.0"
   }
 }
