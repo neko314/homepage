@@ -1,0 +1,17 @@
+.posts__header {
+  margin-bottom: 2rem;
+}
+
+.posts__title {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+  font-size: 2rem;
+}
+
+.posts__body {
+  margin-bottom: 2rem;
+}
+
+.posts__footer {
+  text-align: center;
+}

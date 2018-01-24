@@ -32,24 +32,24 @@
   </head>
   <body>
     <div class="container">
-      <main>
+      <main class="container__body">
         <section>
-          <header class="posts-header">
-            <h1 class="posts-title">Posts</h1>
+          <header class="posts__header">
+            <h1 class="posts__title">Posts</h1>
           </header>
-          <ul class="posts-list">
+          <ul class="posts__body">
             <% for (let file of files) { %>
             <li><a href="<%= file.data.postPath %>"><%= file.data.title %></a> (<%= file.data.time.toFormat("yyyy-MM-dd HH:mm:ss") %>)</li>
             <% } %>
           </ul>
-          <footer class="posts-footer">
+          <footer class="posts__footer">
             <p>
               <a href="/">トップ</a> | <a href="/posts/index.atom">Feed</a>
             </p>
           </footer>
         </section>
       </main>
-      <footer class="container-footer">
+      <footer class="container__footer">
         <p>
           © 2017 Naoto Kaneko
         </p>

@@ -1,0 +1,15 @@
+.homepage__title {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.homepage__content {
+  & h1 {
+    margin-bottom: 1rem;
+  }
+
+  & ul {
+    margin-bottom: 1rem;
+  }
+}

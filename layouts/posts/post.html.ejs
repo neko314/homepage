@@ -33,23 +33,23 @@
   </head>
   <body>
     <div class="container" itemscope itemtype="http://schema.org/BlogPosting">
-      <main>
+      <main class="container__body">
         <article>
-          <header class="post-header">
-            <h1 class="post-title" itemprop="mainEntityOfPage headline"><%= pageTitle %></h1>
-            <p class="post-metadata">公開：<time datetime="<%= time.toISO() %>" itemprop="datePublished dateModified"><%= time.toFormat("yyyy-MM-dd HH:mm:ss") %></time></p>
+          <header class="post__header">
+            <h1 class="post__title" itemprop="mainEntityOfPage headline"><%= pageTitle %></h1>
+            <p class="post__metadata">公開：<time datetime="<%= time.toISO() %>" itemprop="datePublished dateModified"><%= time.toFormat("yyyy-MM-dd HH:mm:ss") %></time></p>
           </header>
-          <section class="post-content" itemprop="articleBody">
+          <section class="post__content" itemprop="articleBody">
             <%- content %>
           </section>
-          <footer class="post-footer">
+          <footer class="post__footer">
             <p>
               <a href="/">トップ</a> | <a href="/posts/">一覧</a> | <a href="/posts/index.atom">Feed</a>
             </p>
           </footer>
         </article>
       </main>
-      <footer class="container-footer">
+      <footer class="container__footer">
         <p>
           © 2017 <span itemprop="author">Naoto Kaneko</span>
         </p>
