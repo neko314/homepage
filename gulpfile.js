@@ -86,20 +86,6 @@ gulp.task("post", ["style"], () => {
 });
 
 gulp.task("style", () => {
-  let srcFiles = [
-    "node_modules/ress/ress.css",
-    "stylesheets/style.sass",
-    "stylesheets/large.sass"
-  ];
-
-  return gulp.src(srcFiles)
-    .pipe(sass())
-    .pipe(concat("main.css"))
-    .pipe(clean())
-    .pipe(gulp.dest("public/stylesheets"));
-});
-
-gulp.task("stylesheets", () => {
   return gulp.src("stylesheets/application.css")
     .pipe(postcss())
     .pipe(gulp.dest("public/stylesheets"))
