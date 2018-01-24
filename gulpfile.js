@@ -30,7 +30,7 @@ gulp.task("default", ["all"], () => {
   gulp.watch("layouts/posts/index.atom.ejs", ["reload-feed"]);
   gulp.watch("layouts/posts/index.html.ejs", ["reload-posts"]);
   gulp.watch("layouts/posts/post.html.ejs", ["reload-post"]);
-  gulp.watch("stylesheets/*.css", ["reload-all"]);
+  gulp.watch("stylesheets/**/*.css", ["reload-all"]);
 });
 
 gulp.task("all", ["top", "posts", "post", "style", "feed"]);
