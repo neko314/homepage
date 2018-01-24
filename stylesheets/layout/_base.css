@@ -23,5 +23,8 @@ body {
 .container__footer {
   padding: 1rem 0;
   border-top: 1px solid #333;
-  text-align: center;
+
+  & * {
+    line-height: 1;
+  }
 }

@@ -78,5 +78,7 @@
 }
 
 .post__footer {
-  text-align: center;
+  & * {
+    line-height: 1;
+  }
 }

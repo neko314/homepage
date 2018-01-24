@@ -4,6 +4,7 @@
 
 .posts__title {
   margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid #333;
   font-size: 2rem;
 }
@@ -13,5 +14,7 @@
 }
 
 .posts__footer {
-  text-align: center;
+  & * {
+    line-height: 1;
+  }
 }
