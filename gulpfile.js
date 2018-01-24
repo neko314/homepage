@@ -100,7 +100,7 @@ gulp.task("style", () => {
 });
 
 gulp.task("stylesheets", () => {
-  return gulp.src("stylesheets/*.css")
+  return gulp.src("stylesheets/application.css")
     .pipe(postcss())
     .pipe(gulp.dest("public/stylesheets"))
 });
