@@ -99,6 +99,7 @@ gulp.task("feed", () => {
   return gulp.src("contents/posts/*.md")
     .pipe(frontMatter())
     .pipe(markdown())
+    .pipe(rename({ extname: ".html" }))
     .pipe(data(postData))
     .pipe(sort((file1, file2) => file2.data.time - file1.data.time))
     .pipe(index("layouts/posts/index.atom.ejs"))
