@@ -1,4 +1,9 @@
 :root {
+  /* Font-family */
+  --font-family-sans-serif: "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --font-family-monospace: "Courier New", monospace;
+
+  /* Color */
   --text-color: #333;
   --border-color: #333;
   --base-background-color: #ddd;
