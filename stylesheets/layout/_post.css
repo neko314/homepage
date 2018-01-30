@@ -9,7 +9,7 @@
 .post__title {
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--border-color);
   font-feature-settings: "palt" 1;
   font-size: 2rem;
 }
@@ -55,7 +55,7 @@
     display: block;
     width: 80%;
     margin: 0 auto;
-    border: 1px solid #333;
+    border: 1px solid var(--border-color);
   }
 
   & pre {

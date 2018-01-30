@@ -1,18 +1,18 @@
 body {
   @media (min-width: 640px) {
-    background-color: #ddd;
+    background-color: var(--base-background-color);
   }
 }
 
 .container {
   padding: 0 1rem;
-  background-color: #fff;
+  background-color: var(--main-background-color);
 
   @media (min-width: 640px) {
     width: 40rem;
     margin: 2rem auto;
     padding: 0 2rem;
-    border: 1px solid #333;
+    border: 1px solid var(--border-color);
   }
 }
 
@@ -22,7 +22,7 @@ body {
 
 .container__footer {
   padding: 1rem 0;
-  border-top: 1px solid #333;
+  border-top: 1px solid var(--border-color);
 
   & * {
     line-height: 1;

@@ -1,5 +1,6 @@
 /* Foundation */
 @import "ress/ress.css";
+@import "foundation/_variable.css";
 @import "foundation/_base.css";
 
 /* Layout */
