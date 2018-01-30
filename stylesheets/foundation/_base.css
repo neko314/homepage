@@ -1,7 +1,7 @@
-html {
-  font-family: var(--font-family-sans-serif);
-  font-size: 16px;
+body {
   color: var(--text-color);
+  font-size: 1rem;
+  font-family: var(--font-family-sans-serif);
 }
 
 h1 {
