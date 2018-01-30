@@ -1,5 +1,5 @@
 /* Foundation */
-@import "ress/ress.css";
+@import "normalize.css/normalize.css";
 @import "foundation/_variable.css";
 @import "foundation/_base.css";
 
