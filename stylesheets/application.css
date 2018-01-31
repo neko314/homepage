@@ -5,9 +5,11 @@
 
 /* Layout */
 @import "layout/_base.css";
-@import "layout/_homepage.css";
-@import "layout/_posts.css";
-@import "layout/_post.css";
+
+/* Object/Project */
+@import "object/project/_homepage.css";
+@import "object/project/_posts.css";
+@import "object/project/_post.css";
 
 /* Object/Utility */
 @import "object/utility/_align.css";
