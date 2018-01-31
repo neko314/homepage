@@ -33,22 +33,34 @@
   }
 
   & h1,
-  & h2 {
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6,
+  & li {
+    margin-bottom: 1rem;
+  }
+
+  & p,
+  & ul,
+  & ol,
+  & pre,
+  & table {
     margin-bottom: 2rem;
+  }
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
     font-feature-settings: "palt" 1;
   }
 
   & p {
-    margin-bottom: 2rem;
-  }
-
-  & ul,
-  & ol {
-    margin-bottom: 2rem;
-  }
-
-  & li {
-    margin-bottom: 0.5rem;
+    line-height: 2;
   }
 
   & img {
@@ -59,7 +71,6 @@
   }
 
   & pre {
-    margin-bottom: 2rem;
     padding: 1em;
     background-color: #333;
     color: #fff;
@@ -73,7 +84,6 @@
 
   & table {
     width: 100%;
-    margin-bottom: 2rem;
   }
 }
 
