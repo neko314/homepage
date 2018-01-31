@@ -11,6 +11,10 @@ body {
     width: 40rem;
     margin: 2rem auto 0;
     background-color: var(--main-background-color);
+    box-shadow:
+      0 5px 5px rgba(0, 0, 0, 0.1),
+      3px 0 5px rgba(0, 0, 0, 0.1),
+      -3px 0 5px rgba(0, 0, 0, 0.1);
   }
 }
 
