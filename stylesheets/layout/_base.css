@@ -9,7 +9,7 @@ body {
 
   @media (min-width: 40rem) {
     width: 40rem;
-    margin: 2rem auto 0;
+    margin: 2rem auto;
     background-color: var(--main-background-color);
     box-shadow:
       0 5px 5px rgba(0, 0, 0, 0.1),
