@@ -4,7 +4,7 @@
   --font-family-monospace: "Courier New", monospace;
 
   /* Color */
-  --text-color: #333;
+  --primary-text-color: rgba(0, 0, 0, 0.87);
   --border-color: #333;
   --base-background-color: #ddd;
   --main-background-color: #fff;
