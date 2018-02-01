@@ -13,6 +13,10 @@
   margin-bottom: 2rem;
 }
 
+.post-item__metadata {
+  color: var(--secondary-text-color);
+}
+
 .posts__footer {
   & * {
     line-height: 1;

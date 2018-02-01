@@ -39,7 +39,7 @@
           </header>
           <ul class="posts__body">
             <% for (let file of files) { %>
-            <li><a href="<%= file.data.postPath %>"><%= file.data.title %></a> (<%= file.data.time.toFormat("yyyy-MM-dd HH:mm:ss") %>)</li>
+            <li><a href="<%= file.data.postPath %>"><%= file.data.title %></a> <span class="post-item__metadata">(<%= file.data.time.toFormat("yyyy-MM-dd HH:mm:ss") %>)</span></li>
             <% } %>
           </ul>
           <footer class="posts__footer">
