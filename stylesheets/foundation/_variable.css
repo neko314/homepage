@@ -5,6 +5,7 @@
 
   /* Color */
   --primary-text-color: rgba(0, 0, 0, 0.87);
+  --secondary-text-color: rgba(0, 0, 0, 0.54);
   --border-color: #333;
   --base-background-color: #ddd;
   --main-background-color: #fff;
