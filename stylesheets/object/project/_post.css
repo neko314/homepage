@@ -59,7 +59,8 @@
     font-feature-settings: "palt" 1;
   }
 
-  & p {
+  & p,
+  & li {
     line-height: 2;
   }
 
