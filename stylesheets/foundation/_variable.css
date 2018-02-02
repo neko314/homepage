@@ -1,7 +1,7 @@
 :root {
   /* Font-family */
   --font-family-sans-serif: system-ui, sans-serif;
-  --font-family-monospace: "Courier New", monospace;
+  --font-family-monospace: Consolas, Monaco, monospace;
 
   /* Color */
   --primary-text-color: rgba(0, 0, 0, 0.87);
