@@ -76,12 +76,7 @@
     padding: 1em;
     background-color: #333;
     color: #fff;
-
-    & code {
-      @media (min-width: 640px) {
-        font-size: 1rem;
-      }
-    }
+    font-size: 0.8rem;
   }
 
   & table {
