@@ -62,6 +62,7 @@
 
   & p,
   & li {
+    letter-spacing: 1px;
     line-height: 2;
   }
 
