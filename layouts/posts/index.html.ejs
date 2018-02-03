@@ -39,7 +39,14 @@
           </header>
           <ul class="posts__body">
             <% for (let file of files) { %>
-            <li><a href="<%= file.data.postPath %>"><%= file.data.title %></a> <span class="post-item__metadata">(<%= file.data.time.toFormat("yyyy-MM-dd HH:mm:ss") %>)</span></li>
+            <li class="post-item">
+              <div class="post-item__body">
+                <a href="<%= file.data.postPath %>" class="post-item__link"><%= file.data.title %></a>
+              </div>
+              <div class="post-item__metadata">
+                <span><%= file.data.time.toFormat("yyyy-MM-dd HH:mm") %></span>
+              </div>
+            </li>
             <% } %>
           </ul>
           <footer class="posts__footer">

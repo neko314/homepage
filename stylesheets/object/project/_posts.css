@@ -13,8 +13,15 @@
   margin-bottom: 2rem;
 }
 
+.post-item__body {
+  display: block;
+}
+
 .post-item__metadata {
+  display: block;
   color: var(--secondary-text-color);
+  font-size: 0.8rem;
+  font-family: var(--font-family-monospace);
 }
 
 .posts__footer {
