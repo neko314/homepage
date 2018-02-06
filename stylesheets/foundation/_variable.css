@@ -1,4 +1,8 @@
 :root {
+  /* Font size */
+  --font-size-large: 18px;
+  --font-size-medium: 16px;
+
   /* Font-family */
   --font-family-sans-serif: system-ui, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   --font-family-monospace: "SFMono-Regular", Consolas, Monaco, Courier, monospace;
