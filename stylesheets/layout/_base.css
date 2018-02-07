@@ -9,7 +9,7 @@ body {
   padding: 2rem 1rem 1rem;
 
   @media (--large-viewport) {
-    width: 40rem;
+    width: var(--container-width);
     margin: 0 auto;
     padding: 2rem 2rem 1rem;
     background-color: var(--main-background-color);
