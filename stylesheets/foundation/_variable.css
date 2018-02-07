@@ -13,4 +13,7 @@
   --border-color: #333;
   --base-background-color: #ddd;
   --main-background-color: #fff;
+
+  /* Media query */
+  @custom-media --large-viewport (width >= 40rem);
 }

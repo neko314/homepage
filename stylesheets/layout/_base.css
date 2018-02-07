@@ -1,5 +1,5 @@
 body {
-  @media (min-width: 40rem) {
+  @media (--large-viewport) {
     padding: 2rem 0;
     background-color: var(--base-background-color);
   }
@@ -8,7 +8,7 @@ body {
 .container {
   padding: 2rem 1rem 1rem;
 
-  @media (min-width: 40rem) {
+  @media (--large-viewport) {
     width: 40rem;
     margin: 0 auto;
     padding: 2rem 2rem 1rem;

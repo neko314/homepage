@@ -5,7 +5,7 @@
 html {
   font-size: var(--font-size-medium);
 
-  @media (min-width: 40rem) {
+  @media (--large-viewport) {
     font-size: var(--font-size-large);
   }
 }

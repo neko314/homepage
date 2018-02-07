@@ -82,7 +82,7 @@
     font-size: 0.8rem;
 
     & > code {
-      @media (min-width: 40rem) {
+      @media (--large-viewport) {
         font-size: 0.9rem;
         line-height: 1.8;
       }
