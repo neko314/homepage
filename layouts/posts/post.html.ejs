@@ -37,7 +37,7 @@
         <article>
           <header class="post__header">
             <h1 class="post__title" itemprop="mainEntityOfPage headline"><%= pageTitle %></h1>
-            <p class="post__metadata">公開：<time datetime="<%= time.toISO() %>" itemprop="datePublished dateModified"><%= time.toFormat("yyyy-MM-dd HH:mm:ss") %></time></p>
+            <p class="post__metadata"><time datetime="<%= time.toISO() %>" itemprop="datePublished dateModified"><%= time.toFormat("yyyy-MM-dd HH:mm:ss") %></time></p>
           </header>
           <section class="post__content" itemprop="articleBody">
             <%- content %>
