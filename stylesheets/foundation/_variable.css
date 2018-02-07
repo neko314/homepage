@@ -15,8 +15,8 @@
   --main-background-color: #fff;
 
   /* Width */
-  --container-width: 40rem;
+  --container-width: 35rem;
 
   /* Media query */
-  @custom-media --large-viewport (width >= 40rem);
+  @custom-media --large-viewport (width >= 630px); /* 18px * 35rem */
 }
