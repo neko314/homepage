@@ -6,8 +6,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "gulp all",
-    "server": "gulp"
+    "start": "gulp",
+    "build": "gulp all"
   },
   "browserslist": [
     "> 5%"
