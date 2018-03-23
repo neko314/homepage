@@ -8,7 +8,7 @@
   padding: 1rem;
 
   @media (--large-viewport) {
-    display: inline-block;
+    display: inline-flex;
     background-color: var(--main-background-color);
     text-align: left;
     box-shadow:
@@ -18,13 +18,28 @@
   }
 }
 
+.p-top__left {
+  display: none;
+
+  @media (--large-viewport) {
+    display: block;
+    margin-right: 1rem;
+  }
+}
+
 .p-top__title {
   margin-bottom: 1rem;
+  line-height: 1.5rem;
 }
 
 .p-top__links {
+  margin-bottom: 0;
   padding: 0;
   list-style: none;
+}
+
+.p-top__link:last-child {
+  margin-bottom: 0;
 }
 
 /* .p-top {
