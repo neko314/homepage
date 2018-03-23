@@ -1,5 +1,21 @@
+.p-top-container {
+  @media (--large-viewport) {
+    text-align: center;
+  }
+}
+
 .p-top {
   padding: 1rem;
+
+  @media (--large-viewport) {
+    display: inline-block;
+    background-color: var(--main-background-color);
+    text-align: left;
+    box-shadow:
+      0 5px 5px rgba(0, 0, 0, 0.1),
+      3px 0 5px rgba(0, 0, 0, 0.1),
+      -3px 0 5px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .p-top__title {
