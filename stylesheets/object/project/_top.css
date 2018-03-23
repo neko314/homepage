@@ -1,4 +1,17 @@
 .p-top {
+  padding: 1rem;
+}
+
+.p-top__title {
+  margin-bottom: 1rem;
+}
+
+.p-top__links {
+  padding: 0;
+  list-style: none;
+}
+
+/* .p-top {
   padding: 2rem 1rem 1rem;
 
   @media (--large-viewport) {
@@ -39,4 +52,4 @@
   & > *:last-child {
     margin-bottom: 0;
   }
-}
+} */
