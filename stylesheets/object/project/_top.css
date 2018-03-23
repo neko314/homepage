@@ -1,5 +1,7 @@
 .p-top-container {
   @media (--large-viewport) {
+    padding: 0;
+    line-height: 100vh;
     text-align: center;
   }
 }
@@ -10,6 +12,7 @@
   @media (--large-viewport) {
     display: inline-flex;
     background-color: var(--main-background-color);
+    line-height: 1.5;
     text-align: left;
     box-shadow:
       0 5px 5px rgba(0, 0, 0, 0.1),
