@@ -21,12 +21,16 @@
 
 .p-top__left {
   display: block;
-  height: 96px;
+  height: 86px;
   margin-right: 1rem;
+
+  @media (--large-viewport) {
+    height: 96px;
+  }
 }
 
-.p-top__right {
-  height: 96px;
+.p-top__icon {
+  height: 100%;
 }
 
 .p-top__title {
