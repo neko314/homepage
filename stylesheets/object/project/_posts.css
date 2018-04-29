@@ -1,5 +1,5 @@
 .p-posts-container {
-  padding: 2rem 1rem 1rem;
+  padding: 1rem;
 
   @media (--large-viewport) {
     width: var(--container-width);
@@ -15,7 +15,6 @@
 
 .p-posts-container__body {
   margin-bottom: 1rem;
-  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -26,11 +25,10 @@
 }
 
 .p-posts__header {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .p-posts__title {
-  margin-bottom: 2rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border-color);
   font-size: 2rem;
@@ -52,6 +50,8 @@
 }
 
 .p-posts__footer {
+  margin-bottom: 2rem;
+
   & * {
     line-height: 1;
   }
