@@ -1,19 +1,17 @@
 .p-top-container {
-  @media (--large-viewport) {
-    padding: 0;
-    line-height: 100vh;
-    text-align: center;
-  }
+  padding: 0;
+  text-align: center;
+  line-height: 100vh;
 }
 
 .p-top {
+  display: inline-flex;
   padding: 1rem;
+  line-height: 1.5;
+  text-align: left;
 
   @media (--large-viewport) {
-    display: inline-flex;
     background-color: var(--main-background-color);
-    line-height: 1.5;
-    text-align: left;
     box-shadow:
       0 5px 5px rgba(0, 0, 0, 0.1),
       3px 0 5px rgba(0, 0, 0, 0.1),
@@ -22,13 +20,13 @@
 }
 
 .p-top__left {
-  display: none;
+  display: block;
+  height: 96px;
+  margin-right: 1rem;
+}
 
-  @media (--large-viewport) {
-    display: block;
-    height: 96px;
-    margin-right: 1rem;
-  }
+.p-top__right {
+  height: 96px;
 }
 
 .p-top__title {
