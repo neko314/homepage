@@ -4,8 +4,15 @@
   "description": "My homepage",
   "author": "Naoto Kaneko <naoty.k@gmail.com>",
   "private": true,
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop"
+  },
   "dependencies": {
     "gatsby": "^1.9.277",
     "gatsby-link": "^1.6.46"
+  },
+  "devDependencies": {
+    "gatsby-cli": "^1.1.58"
   }
 }
