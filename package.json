@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "description": "My homepage",
   "author": "Naoto Kaneko <naoty.k@gmail.com>",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "gatsby": "^1.9.277",
+    "gatsby-link": "^1.6.46"
+  }
 }
