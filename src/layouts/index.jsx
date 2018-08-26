@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./index.module.css";
+import Container from "../components/container";
 
 export default ({ children }) => (
-  <main className={styles.container}>
+  <Container>
     {children()}
-  </main>
-);
+  </Container>
+)
