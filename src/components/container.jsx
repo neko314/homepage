@@ -8,7 +8,7 @@ const Container = styled.main`
 
   @media (min-width: 35rem) {
     width: 35rem;
-    margin: ${rhythm(2)} auto 0;
+    margin: ${rhythm(2)} auto;
     padding: ${rhythm(2)};
     box-shadow: 0 5px 5px rgba(0,0,0,.1), 3px 0 5px rgba(0,0,0,.1), -3px 0 5px rgba(0,0,0,.1);
   }
