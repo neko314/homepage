@@ -20,12 +20,17 @@ const japaneseFontFamily = [
 ];
 
 const typography = new Typography({
-  baseFontSize: "18px",
+  baseFontSize: "16px",
   headerFontFamily: [...romanFontFamily, ...japaneseFontFamily, "sans-serif"],
   bodyFontFamily: [...romanFontFamily, ...japaneseFontFamily, "sans-serif"],
   overrideStyles: () => ({
-    body: {
-      backgroundColor: "#eee"
+    "@media (min-width: 35rem)": {
+      html: {
+        fontSize: "18px"
+      },
+      body: {
+        backgroundColor: "#eee"
+      }
     }
   })
 });
