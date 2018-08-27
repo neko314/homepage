@@ -13,8 +13,8 @@ export default ({ data }) => (
   <Container>
     <PageTitle>ブログ</PageTitle>
     <List>
-      {data.allFile.edges.map(({ node }, index) => (
-        <li key={index}>{node.base}</li>
+      {data.allMarkdownRemark.edges.map(({ node }, index) => (
+        <li key={index}>{node.frontmatter.title}</li>
       ))}
     </List>
     <Navigation>
@@ -25,11 +25,12 @@ export default ({ data }) => (
 
 export const query = graphql`
   query PostsQuery {
-    allFile {
+    allMarkdownRemark(sort: { fields: [frontmatter___time], order: DESC }) {
       edges {
         node {
-          base
-          name
+          frontmatter {
+            title
+          }
         }
       }
     }
