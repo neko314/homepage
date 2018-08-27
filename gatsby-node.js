@@ -8,6 +8,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         allMarkdownRemark {
           edges {
             node {
+              id
               fileAbsolutePath
             }
           }
@@ -18,7 +19,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         const basename = path.basename(node.fileAbsolutePath, ".md");
         createPage({
           path: `/posts/${basename}.html`,
-          component: path.resolve("./src/templates/post.jsx")
+          component: path.resolve("./src/templates/post.jsx"),
+          context: {
+            id: node.id
+          }
         });
       });
       resolve();
