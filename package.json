@@ -16,6 +16,7 @@
     "gatsby-link": "^1.6.46",
     "gatsby-plugin-emotion": "^1.1.17",
     "gatsby-plugin-typography": "^1.7.19",
+    "gatsby-source-filesystem": "^1.5.39",
     "react-emotion": "^9.2.6"
   },
   "devDependencies": {
