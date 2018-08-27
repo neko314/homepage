@@ -20,6 +20,7 @@ const japaneseFontFamily = [
 ];
 
 const typography = new Typography({
+  baseFontSize: "18px",
   headerFontFamily: [...romanFontFamily, ...japaneseFontFamily, "sans-serif"],
   bodyFontFamily: [...romanFontFamily, ...japaneseFontFamily, "sans-serif"],
   overrideStyles: () => ({
