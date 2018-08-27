@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop"
+    "develop": "gatsby develop",
+    "serve": "gatsby serve"
   },
   "dependencies": {
     "emotion": "^9.2.6",
