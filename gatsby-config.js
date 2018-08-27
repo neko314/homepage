@@ -6,6 +6,7 @@ module.exports = {
         path: "src/contents/posts/"
       }
     },
+    "gatsby-transformer-remark",
     {
       resolve: "gatsby-plugin-typography",
       options: {
