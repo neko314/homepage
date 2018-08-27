@@ -1,13 +1,9 @@
 import React from "react";
 import Link from "gatsby-link";
-import styled from "react-emotion";
 import Container from "../../components/container";
 import List from "../../components/list";
+import Navigation from "../../components/navigation";
 import PageTitle from "../../components/pageTitle";
-
-const Navigation = styled.p`
-  text-align: center;
-`;
 
 export default ({ data }) => (
   <Container>
