@@ -6,6 +6,10 @@ import List from "../../components/list";
 import Navigation from "../../components/navigation";
 import PageTitle from "../../components/pageTitle";
 
+const links = [
+  { title: "トップ", path: "/" }
+];
+
 export default ({ data }) => (
   <Container>
     <PageTitle>ブログ</PageTitle>
@@ -18,9 +22,7 @@ export default ({ data }) => (
         </li>
       ))}
     </List>
-    <Navigation>
-      <Link to="/">トップ</Link>
-    </Navigation>
+    <Navigation links={links} />
   </Container>
 );
 
