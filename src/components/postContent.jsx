@@ -3,6 +3,8 @@ import styled from "react-emotion";
 import { rhythm } from "../utils/typography";
 
 const PostContent = styled.section`
+  margin-bottom: ${rhythm(1)};
+
   h1,
   h2,
   h3,
