@@ -25,6 +25,10 @@ const typography = new Typography({
   headerFontFamily: [...romanFontFamily, ...japaneseFontFamily, "sans-serif"],
   bodyFontFamily: [...romanFontFamily, ...japaneseFontFamily, "sans-serif"],
   overrideStyles: () => ({
+    "h1,h2,h3,h4,h5,h6": {
+      lineHeight: 1.5,
+      fontFeatureSettings: "'palt' 1"
+    },
     "@media (min-width: 35rem)": {
       html: {
         fontSize: "18px"
