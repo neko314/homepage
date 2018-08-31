@@ -6,7 +6,7 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: "src/contents/posts/"
+        path: "contents/posts/"
       }
     },
     "gatsby-transformer-remark",
