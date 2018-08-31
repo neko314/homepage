@@ -1,4 +1,7 @@
 module.exports = {
+  siteMetadata: {
+    rootURL: process.env.NODE_ENV == "production" ? "https://naoty.github.io" : "http://localhost:8000"
+  },
   plugins: [
     {
       resolve: "gatsby-source-filesystem",
