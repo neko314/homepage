@@ -3,30 +3,25 @@ import Link from "gatsby-link";
 import styled from "react-emotion";
 
 const Container = styled.ul`
+  margin-left: 0;
   list-style: none;
   text-align: center;
 
   li {
     display: inline;
-  }
 
-  span {
-    margin: 0 0.5rem;
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+      padding-right: 0.5rem;
+      border-right: 1px solid #333;
+    }
   }
 `;
 
-export default ({ links }) => {
-  const lists = [];
-  links.forEach((link, index) => {
-    lists.push(
-      <li key={index}>
-        <Link to={link.path}>{link.title}</Link>
-      </li>
-    );
-    if (index < links.length - 1) {
-      lists.push(<span key={`${index}-${index + 1}`}>|</span>);
-    }
-  });
-
-  return <Container>{lists}</Container>;
-}
+export default ({ links }) => (
+  <Container>
+    {links.map((link, index) => (
+      <li key={index}><Link to={link.path}>{link.title}</Link></li>
+    ))}
+  </Container>
+);
