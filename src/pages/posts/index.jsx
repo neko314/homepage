@@ -1,10 +1,10 @@
 import React from "react";
 import path from "path";
 import Link from "gatsby-link";
-import Container from "../../components/container";
-import List from "../../components/list";
-import Navigation from "../../components/navigation";
-import PageTitle from "../../components/pageTitle";
+import Container from "../../components/Container";
+import List from "../../components/List";
+import Navigation from "../../components/Navigation";
+import PageTitle from "../../components/PageTitle";
 
 const links = [
   { title: "トップ", path: "/" }

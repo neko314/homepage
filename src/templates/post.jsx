@@ -1,9 +1,9 @@
 import React from "react";
-import Container from "../components/container";
-import Navigation from "../components/navigation";
-import PageTitle from "../components/pageTitle";
-import PostContent from "../components/postContent";
-import PostMetadata from "../components/postMetadata";
+import Container from "../components/Container";
+import Navigation from "../components/Navigation";
+import PageTitle from "../components/PageTitle";
+import PostContent from "../components/PostContent";
+import PostMetadata from "../components/PostMetadata";
 
 const links = [
   { title: "トップ", path: "/" },
