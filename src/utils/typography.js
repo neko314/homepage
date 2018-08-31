@@ -34,7 +34,7 @@ const typography = new Typography({
         fontSize: "18px"
       },
       body: {
-        backgroundColor: "#eee"
+        backgroundColor: "#ddd"
       }
     }
   })
