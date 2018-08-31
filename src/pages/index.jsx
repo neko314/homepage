@@ -6,7 +6,7 @@ import PageTitle from "../components/PageTitle";
 
 export default () => (
   <Container>
-    <PageTitle>金子 直人</PageTitle>
+    <PageTitle>Naoto Kaneko</PageTitle>
     <List>
       <li><Link to="/posts/">ブログ</Link></li>
       <li><a href="https://github.com/naoty">GitHub</a></li>
