@@ -16,7 +16,7 @@ export default ({ data }) => (
 
     <PageTitle>Naoto Kaneko</PageTitle>
     <List>
-      <li><Link to="/posts/">ブログ</Link></li>
+      <li><Link to="/posts/">Posts</Link></li>
       <li><a href="https://github.com/naoty">GitHub</a></li>
       <li><a href="https://twitter.com/naoty_k">Twitter</a></li>
     </List>

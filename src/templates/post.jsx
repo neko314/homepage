@@ -8,8 +8,8 @@ import PostContent from "../components/PostContent";
 import PostMetadata from "../components/PostMetadata";
 
 const links = [
-  { title: "トップ", path: "/" },
-  { title: "ブログ", path: "/posts/" }
+  { title: "Top", path: "/" },
+  { title: "Posts", path: "/posts/" }
 ];
 
 export default ({ data }) => {

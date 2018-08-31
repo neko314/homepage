@@ -8,7 +8,7 @@ import Navigation from "../../components/Navigation";
 import PageTitle from "../../components/PageTitle";
 
 const links = [
-  { title: "トップ", path: "/" }
+  { title: "Top", path: "/" }
 ];
 
 export default ({ data }) => (
@@ -20,7 +20,7 @@ export default ({ data }) => (
       imageURL={`${data.site.siteMetadata.rootURL}/icons/256x256.png`}
     />
 
-    <PageTitle>ブログ</PageTitle>
+    <PageTitle>Posts</PageTitle>
     <List>
       {data.allMarkdownRemark.edges.map(({ node }, index) => (
         <li key={index}>
