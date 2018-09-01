@@ -43,6 +43,7 @@ export const query = graphql`
       frontmatter {
         title
         time
+        description
       }
       html
       fileAbsolutePath
