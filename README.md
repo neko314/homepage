@@ -1,9 +1,9 @@
 # Homepage
-Homepage builder for https://naoty.github.io
+Homepage builder for https://naoty.github.io with [Gatsby.js](https://www.gatsbyjs.org/)
 
 ## Development
 
-```shell-session
+```sh
 $ npm install
-$ npm start
+$ npm run develop
 ```
