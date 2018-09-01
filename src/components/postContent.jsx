@@ -2,7 +2,7 @@ import React from "react";
 import styled from "react-emotion";
 import { rhythm } from "../utils/typography";
 
-const PostContent = styled.section`
+const Container = styled.section`
   margin-bottom: ${rhythm(1)};
 
   h1,
@@ -58,6 +58,20 @@ const PostContent = styled.section`
     overflow-x: auto;
   }
 
+  table {
+    border: 1px solid #333;
+  }
+
+  th,
+  td {
+    padding: 0.25rem;
+    border: 1px solid #333;
+  }
+
+  th {
+    text-align: center;
+  }
+
   @media (min-width: 35rem) {
     pre,
     pre > code {
@@ -68,5 +82,5 @@ const PostContent = styled.section`
 `;
 
 export default ({ html }) => (
-  <PostContent dangerouslySetInnerHTML={{ __html: html }} />
+  <Container dangerouslySetInnerHTML={{ __html: html }} />
 );
