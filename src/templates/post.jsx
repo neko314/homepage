@@ -1,5 +1,6 @@
 import React from "react";
 import path from "path";
+import { graphql } from "gatsby";
 import Container from "../components/Container";
 import Head from "../components/Head";
 import Navigation from "../components/Navigation";
