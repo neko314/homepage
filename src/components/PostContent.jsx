@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "react-emotion";
-import { rhythm } from "../utils/typography";
+import typography from "../utils/typography";
 
 const Container = styled.section`
-  margin-bottom: ${rhythm(1)};
+  margin-bottom: ${typography.rhythm(1)};
 
   h1,
   h2,
@@ -11,7 +11,7 @@ const Container = styled.section`
   h4,
   h5,
   h6 {
-    margin-bottom: ${rhythm(1/2)};
+    margin-bottom: ${typography.rhythm(1/2)};
   }
 
   p,
@@ -19,7 +19,7 @@ const Container = styled.section`
   ul,
   pre,
   table {
-    margin-bottom: ${rhythm(1)};
+    margin-bottom: ${typography.rhythm(1)};
   }
 
   h1 {
@@ -52,7 +52,7 @@ const Container = styled.section`
   }
 
   pre {
-    padding: ${rhythm(1/2)};
+    padding: ${typography.rhythm(1/2)};
     background-color: #333;
     color: #fff;
     overflow-x: auto;
