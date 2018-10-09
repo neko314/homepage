@@ -55,6 +55,7 @@ const Container = styled.section`
     padding: ${typography.rhythm(1/2)};
     background-color: #333;
     color: #fff;
+    line-height: 1.8;
     overflow-x: auto;
   }
 
