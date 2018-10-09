@@ -58,6 +58,11 @@ const Container = styled.section`
     overflow-x: auto;
   }
 
+  pre > code {
+    font-size: 0.8rem;
+    line-height: 1.8;
+  }
+
   table {
     border: 1px solid #333;
   }
@@ -70,14 +75,6 @@ const Container = styled.section`
 
   th {
     text-align: center;
-  }
-
-  @media (min-width: 35rem) {
-    pre,
-    pre > code {
-      font-size: 0.8rem;
-      line-height: 1.8;
-    }
   }
 `;
 
