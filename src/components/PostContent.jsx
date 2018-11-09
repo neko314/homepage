@@ -44,6 +44,11 @@ const Container = styled.section`
     color: #000;
   }
 
+  code {
+    margin: 0 0.25rem;
+    font-size: 1rem;
+  }
+
   img {
     display: block;
     width: 80%;
@@ -60,8 +65,9 @@ const Container = styled.section`
   }
 
   pre > code {
+    margin: 0;
     font-size: 0.8rem;
-    line-height: 1.8;
+    line-height: 1.5;
   }
 
   table {
