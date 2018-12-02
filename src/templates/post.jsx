@@ -20,7 +20,7 @@ export default ({ data }) => {
     <Container>
       <Head
         title={data.markdownRemark.frontmatter.title}
-        description={data.markdownRemark.frontmatter.description || data.markdownRemark.frontmatter.title}
+        description={data.markdownRemark.frontmatter.description}
         url={`${data.site.siteMetadata.rootURL}/posts/${postID}.html`}
         imageURL={`${data.site.siteMetadata.rootURL}/icons/256x256.png`}
       />
