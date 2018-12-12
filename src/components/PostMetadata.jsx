@@ -1,6 +1,6 @@
 import React from "react";
 import { DateTime } from "luxon";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 
 const Container = styled.p`
   color: rgba(0, 0, 0, 0.54);
