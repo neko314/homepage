@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import typography from "../utils/typography";
 
 const Container = styled.main`
