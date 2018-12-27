@@ -7,16 +7,28 @@ jobs:
           TZ: /usr/share/zoneinfo/Asia/Tokyo
     steps:
       - checkout
+      - run:
+          name: Notify workflow start
+          command: .circleci/notify_workflow_start
       - run: npm install
       - run: npm run build
       - persist_to_workspace:
           root: .
           paths:
             - public
+      - run: .circleci/notify_job_success
+      - run:
+          name: Notify failure
+          when: on_fail
+          command: |
+            .circleci/notify_job_failed
+            .circleci/notify_workflow_failed
   publish:
     docker:
       - image: circleci/buildpack-deps
     steps:
+      - checkout
+          path: homepage
       - run:
           name: SSH settings
           command: mkdir ~/.ssh/ && echo -e "Host github.com\nStrictHostKeyChecking no\n" > ~/.ssh/config
@@ -37,6 +49,17 @@ jobs:
             git commit -m "Publish naoty/homepage@${CIRCLE_SHA1}"
             git push origin master
           working_directory: naoty.github.io
+      - run:
+          name: Notify success
+          command: |
+            homepage/.circleci/notify_job_success
+            homepage/.circleci/notify_workflow_success
+      - run:
+          name: Notify failure
+          when: on_fail
+          command: |
+            homepage/.circleci/notify_job_failed
+            homepage/.circleci/notify_workflow_failed
 workflows:
   version: 2
   main:
