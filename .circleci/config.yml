@@ -31,7 +31,7 @@ jobs:
           path: homepage
       - run:
           name: SSH settings
-          command: mkdir ~/.ssh/ && echo -e "Host github.com\nStrictHostKeyChecking no\n" > ~/.ssh/config
+          command: echo -e "Host github.com\nStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
           name: Clone GitHub pages
           command: git clone git@github.com:naoty/naoty.github.io
@@ -42,24 +42,26 @@ jobs:
           command: cp -r public/* naoty.github.io/
       - run:
           name: Commit and Push GitHub pages
+          working_directory: naoty.github.io
           command: |
             git config user.email "naoty.k@gmail.com"
             git config user.name "Naoto Kaneko"
             git add .
             git commit -m "Publish naoty/homepage@${CIRCLE_SHA1}"
             git push origin master
-          working_directory: naoty.github.io
       - run:
           name: Notify success
+          working_directory: homepage
           command: |
-            homepage/.circleci/notify_job_success
-            homepage/.circleci/notify_workflow_success
+            .circleci/notify_job_success
+            .circleci/notify_workflow_success
       - run:
           name: Notify failure
           when: on_fail
+          working_directory: homepage
           command: |
-            homepage/.circleci/notify_job_failed
-            homepage/.circleci/notify_workflow_failed
+            .circleci/notify_job_failed
+            .circleci/notify_workflow_failed
 workflows:
   version: 2
   main:
