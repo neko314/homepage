@@ -2,30 +2,45 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:10
         environment:
           TZ: /usr/share/zoneinfo/Asia/Tokyo
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build
+      - persist_to_workspace:
+          paths:
+            - public
+  publish:
+    docker:
+      - image: circleci/buildpack-deps
     steps:
       - run:
           name: SSH settings
           command: mkdir ~/.ssh/ && echo -e "Host github.com\nStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
           name: Clone GitHub pages
+          command: git clone git@github.com:naoty/naoty.github.io
+      - attach_workspace:
+          at: public
+      - run:
+          name: Copy built pages to GitHub pages
+          command: cp -r public/* naoty.github.io/
+      - run:
+          name: Commit and Push GitHub pages
           command: |
-            git clone git@github.com:naoty/naoty.github.io .
             git config user.email "naoty.k@gmail.com"
             git config user.name "Naoto Kaneko"
-          working_directory: ~/naoty.github.io
-      - checkout
-      - run: npm install
-      - run: npm run build
-      - run:
-          name: Publish GitHub pages
-          shell: /bin/bash
-          command: |
-            cp -r public/* ~/naoty.github.io/
-            cd ~/naoty.github.io
             git add .
             git commit -m "Publish naoty/homepage@${CIRCLE_SHA1}"
             git push origin master
-            exit 0
+          working_directory: naoty.github.io
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build
+      - publish:
+          requires:
+            - build
