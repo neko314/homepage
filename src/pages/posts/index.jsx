@@ -1,10 +1,10 @@
 import React from "react";
 import path from "path";
 import { graphql } from "gatsby";
-import Link from "gatsby-link";
 import Container from "../../components/Container";
 import Head from "../../components/Head";
 import List from "../../components/List";
+import ListItem from "../../components/ListItem";
 import Navigation from "../../components/Navigation";
 import PageTitle from "../../components/PageTitle";
 
@@ -24,11 +24,10 @@ export default ({ data }) => (
     <PageTitle>Posts</PageTitle>
     <List>
       {data.allMarkdownRemark.edges.map(({ node }, index) => (
-        <li key={index}>
-          <Link to={`/posts/${path.basename(node.fileAbsolutePath, ".md")}.html`}>
-            {node.frontmatter.title}
-          </Link>
-        </li>
+        <ListItem
+          key={index}
+          title={node.frontmatter.title}
+          href={`/posts/${path.basename(node.fileAbsolutePath, ".md")}.html`} />
       ))}
     </List>
     <Navigation links={links} />
