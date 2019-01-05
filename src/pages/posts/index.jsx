@@ -27,7 +27,8 @@ export default ({ data }) => (
         <ListItem
           key={index}
           title={node.frontmatter.title}
-          href={`/posts/${path.basename(node.fileAbsolutePath, ".md")}.html`} />
+          href={`/posts/${path.basename(node.fileAbsolutePath, ".md")}.html`}
+          tags={node.frontmatter.tags || []} />
       ))}
     </List>
     <Navigation links={links} />
@@ -46,6 +47,7 @@ export const query = graphql`
         node {
           frontmatter {
             title
+            tags
           }
           fileAbsolutePath
         }
