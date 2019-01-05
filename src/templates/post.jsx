@@ -26,7 +26,9 @@ export default ({ data }) => {
       />
 
       <PageTitle>{data.markdownRemark.frontmatter.title}</PageTitle>
-      <PostMetadata time={data.markdownRemark.frontmatter.time} />
+      <PostMetadata
+        time={data.markdownRemark.frontmatter.time} 
+        tags={data.markdownRemark.frontmatter.tags || []} />
       <PostContent html={data.markdownRemark.html} />
       <Navigation links={links} />
     </Container>
@@ -45,6 +47,7 @@ export const query = graphql`
         title
         time
         description
+        tags
       }
       html
       fileAbsolutePath
