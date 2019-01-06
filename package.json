@@ -21,7 +21,7 @@
     "gatsby-plugin-typography": "^2.2.2",
     "gatsby-source-filesystem": "^2.0.12",
     "gatsby-transformer-remark": "^2.1.17",
-    "luxon": "^1.8.3",
+    "luxon": "^1.9.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-emotion": "^10.0.0",
