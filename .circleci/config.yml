@@ -44,11 +44,13 @@ jobs:
           name: Commit and Push GitHub pages
           working_directory: naoty.github.io
           command: |
-            git config user.email "naoty.k@gmail.com"
-            git config user.name "Naoto Kaneko"
-            git add .
-            git commit -m "Publish naoty/homepage@${CIRCLE_SHA1}"
-            git push origin master
+            if [ $(git status --porcelain) != "" ]; then
+              git config user.email "naoty.k@gmail.com"
+              git config user.name "Naoto Kaneko"
+              git add .
+              git commit -m "Publish naoty/homepage@${CIRCLE_SHA1}"
+              git push origin master
+            fi
       - run:
           name: Notify success
           working_directory: homepage
