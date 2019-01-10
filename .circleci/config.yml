@@ -44,7 +44,7 @@ jobs:
           name: Commit and Push GitHub pages
           working_directory: naoty.github.io
           command: |
-            if [ $(git status --porcelain) != "" ]; then
+            if [ "$(git status --porcelain)" != "" ]; then
               git config user.email "naoty.k@gmail.com"
               git config user.name "Naoto Kaneko"
               git add .
