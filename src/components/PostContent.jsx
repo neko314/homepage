@@ -66,7 +66,6 @@ const Container = styled.section`
 
   pre > code {
     margin: 0;
-    font-size: 0.8rem;
     line-height: 1.5;
   }
 
