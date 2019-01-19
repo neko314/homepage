@@ -24,10 +24,19 @@ const typography = new Typography({
   baseLineHeight: 2,
   headerFontFamily: [...romanFontFamily, ...japaneseFontFamily, "sans-serif"],
   bodyFontFamily: [...romanFontFamily, ...japaneseFontFamily, "sans-serif"],
+  googleFonts: [
+    {
+      name: "Source Code Pro",
+      styles: ["Regular"]
+    }
+  ],
   overrideStyles: () => ({
     "h1,h2,h3,h4,h5,h6": {
       lineHeight: 1.5,
       fontFeatureSettings: "'palt' 1"
+    },
+    "code": {
+      fontFamily: "Source Code Pro, monospace"
     },
     "@media (min-width: 35rem)": {
       html: {

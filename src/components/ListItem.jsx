@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 const Tag = styled.span`
   margin-left: 0.5rem;
   color: rgba(0, 0, 0, 0.54);
-  font-family: SFMono-Regular, Consolas, Monaco, Courier, monospace;
+  font-family: Source Code Pro, monospace;
   font-size: 0.8rem;
 `;
 
