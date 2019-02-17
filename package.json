@@ -23,7 +23,7 @@
     "gatsby-transformer-remark": "^2.2.4",
     "luxon": "^1.11.2",
     "react": "^16.8.1",
-    "react-dom": "^16.8.1",
+    "react-dom": "^16.8.2",
     "react-emotion": "^10.0.0",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.18",
