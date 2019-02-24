@@ -22,7 +22,7 @@
     "gatsby-source-filesystem": "^2.0.22",
     "gatsby-transformer-remark": "^2.2.6",
     "luxon": "^1.11.3",
-    "react": "^16.8.2",
+    "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-emotion": "^10.0.0",
     "react-helmet": "^5.2.0",
