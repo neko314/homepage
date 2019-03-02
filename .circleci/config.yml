@@ -52,7 +52,7 @@ jobs:
             if [ "$(git status --porcelain)" != "" ]; then
               git config user.email "naoty.k@gmail.com"
               git config user.name "Naoto Kaneko"
-              git add .
+              git add --all
               git commit -m "Publish naoty/homepage@${CIRCLE_SHA1}"
               git push origin master
             fi
