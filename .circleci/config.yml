@@ -38,6 +38,11 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          name: Remove old files
+          command: |
+            cp -R naoty.github.io/{.git,CNAME,LICENSE,README.md} public/
+            rm -rf naoty.github.io/*
+      - run:
           name: Copy built pages to GitHub pages
           command: cp -r public/* naoty.github.io/
       - run:
