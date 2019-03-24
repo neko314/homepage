@@ -30,6 +30,6 @@
     "typography": "^0.16.19"
   },
   "devDependencies": {
-    "gatsby-cli": "^2.4.16"
+    "gatsby-cli": "^2.4.17"
   }
 }
