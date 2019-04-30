@@ -9,6 +9,9 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             fileAbsolutePath
+            frontmatter {
+              tags
+            }
           }
         }
       }
@@ -23,6 +26,28 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         id: node.id
       }
+    });
+  });
+
+  const tags = [];
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    if (node.frontmatter.tags === null) {
+      return;
+    }
+
+    node.frontmatter.tags.forEach(tag => {
+      if (tags.includes(tag)) {
+        return;
+      }
+
+      tags.push(tag);
+      createPage({
+        path: `/posts/${tag}/`,
+        component: path.resolve("./src/templates/tag/index.jsx"),
+        context: {
+          tag
+        }
+      });
     });
   });
 
