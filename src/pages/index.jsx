@@ -20,6 +20,7 @@ export default ({ data }) => (
       <li><Link to="/posts/">Posts</Link></li>
       <li><a href="https://github.com/naoty">GitHub</a></li>
       <li><a href="https://twitter.com/naoty_k">Twitter</a></li>
+      <li><a href="https://atcoder.jp/users/naoty">AtCoder</a></li>
     </List>
   </Container>
 );
