@@ -12,7 +12,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.12",
-    "emotion": "^10.0.9",
+    "emotion": "^10.0.14",
     "emotion-server": "^10.0.9",
     "gatsby": "^2.10.0",
     "gatsby-link": "^2.2.0",
