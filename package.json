@@ -32,6 +32,6 @@
     "typography": "^0.16.19"
   },
   "devDependencies": {
-    "gatsby-cli": "^2.7.8"
+    "gatsby-cli": "^2.7.14"
   }
 }
