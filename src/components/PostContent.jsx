@@ -23,15 +23,18 @@ const Container = styled.section`
     margin-bottom: ${typography.rhythm(1)};
   }
 
-  h1 {
+  h1,
+  h1 > code {
     font-size: 1.5rem;
   }
 
-  h2 {
+  h2,
+  h2 > code {
     font-size: 1.3rem;
   }
 
-  h3 {
+  h3,
+  h3 > code {
     font-size: 1.2rem;
   }
 
