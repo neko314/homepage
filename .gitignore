@@ -1,3 +1,4 @@
 .config
 .npm
+.nuxt
 node_modules
