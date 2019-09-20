@@ -1,0 +1,10 @@
+{
+  "name": "homepage",
+  "description": "My homepage",
+  "version": "2.0.0",
+  "author": "Naoto Kaneko <naoty.k@gmail.com>",
+  "private": true,
+  "dependencies": {
+    "nuxt": "^2.9.2"
+  }
+}
