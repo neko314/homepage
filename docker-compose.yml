@@ -1,0 +1,12 @@
+version: "3"
+services:
+  nuxt:
+    build: .
+    command: ["npx", "nuxt", "--hostname", "0.0.0.0"]
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/homepage
+      - node_modules:/homepage/node_modules
+volumes:
+  node_modules:
