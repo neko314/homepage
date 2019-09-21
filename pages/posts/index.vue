@@ -3,7 +3,7 @@
     <page-title>Posts</page-title>
     <ul>
       <li v-for="(post, index) in posts" v-bind:key="index">
-        <nuxt-link to="#">{{ post.title }}</nuxt-link>
+        <nuxt-link v-bind:to="post.base.replace('.json', '.html')">{{ post.title }}</nuxt-link>
       </li>
     </ul>
     <p class="navigation-links">

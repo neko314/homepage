@@ -10,21 +10,6 @@ html {
   line-height: 1.5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0 0 1rem 0;
-  padding: 0 0 0.5rem 0;
-}
-
-p {
-  margin: 0 0 1rem 0;
-  padding: 0;
-}
-
 ul,
 ol {
   margin: 0 0 1rem 0;
@@ -36,7 +21,7 @@ li {
   padding: 0;
 }
 
-@media (min-width: 35rem) {
+@media (min-width: 36rem) {
   html {
     font-size: 18px;
   }
