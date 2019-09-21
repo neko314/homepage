@@ -2,24 +2,26 @@
   <div>
     <h1>Posts</h1>
     <ul>
-      <li>
-        <a href="#">ミニマムなwebpack loader</a>
-      </li>
-      <li>
-        <a href="#">HHKB-BTの接続先切り替え</a>
-      </li>
-      <li>
-        <a href="#">ステータスコードをログに出力するhttp.Handler</a>
-      </li>
-      <li>
-        <a href="#">goroutineの実行パターン</a>
+      <li v-for="(post, index) in posts" v-bind:key="index">
+        <nuxt-link to="#">{{ post.title }}</nuxt-link>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import { fileMap } from "assets/contents/summary.json";
+
 export default {
+  computed: {
+    posts() {
+      return Object.values(fileMap).sort((a, b) => {
+        const aId = Number(a.base.replace(a.ext, ""));
+        const bId = Number(b.base.replace(b.ext, ""));
+        return bId - aId;
+      });
+    }
+  },
   head() {
     return {
       title: "Naoto Kaneko's posts",
