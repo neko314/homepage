@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Posts</h1>
+    <page-title>Posts</page-title>
     <ul>
       <li v-for="(post, index) in posts" v-bind:key="index">
         <nuxt-link to="#">{{ post.title }}</nuxt-link>
@@ -19,6 +19,7 @@
 </style>
 
 <script>
+import PageTitle from "~/components/PageTitle.vue";
 import { fileMap } from "assets/contents/summary.json";
 
 export default {
@@ -30,6 +31,9 @@ export default {
         return bId - aId;
       });
     }
+  },
+  components: {
+    PageTitle
   },
   head() {
     return {

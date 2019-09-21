@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Naoto Kaneko</h1>
+    <page-title>Naoto Kaneko</page-title>
     <ul>
       <li>
         <nuxt-link to="/posts/">Posts</nuxt-link>
@@ -19,7 +19,12 @@
 </template>
 
 <script>
+import PageTitle from "~/components/PageTitle.vue";
+
 export default {
+  components: {
+    PageTitle
+  },
   head() {
     return {
       title: "Naoto Kaneko",
