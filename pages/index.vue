@@ -49,7 +49,8 @@ export default {
           name: "twitter:description",
           content: "Naoto Kaneko's homepage"
         }
-      ]
+      ],
+      link: [{ hid: "canonical", rel: "canoical", href: process.env.baseUrl }]
     };
   }
 };
