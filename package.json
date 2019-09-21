@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {
     "normalize.css": "^8.0.1",
-    "nuxt": "^2.9.2"
+    "nuxt": "^2.9.2",
+    "processmd": "^4.4.2"
   }
 }
