@@ -1,4 +1,5 @@
 .config
 .npm
 .nuxt
+dist
 node_modules
