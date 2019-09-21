@@ -6,8 +6,17 @@
         <nuxt-link to="#">{{ post.title }}</nuxt-link>
       </li>
     </ul>
+    <p class="navigation-links">
+      <nuxt-link to="/">Top</nuxt-link>
+    </p>
   </div>
 </template>
+
+<style scoped>
+.navigation-links {
+  text-align: center;
+}
+</style>
 
 <script>
 import { fileMap } from "assets/contents/summary.json";
