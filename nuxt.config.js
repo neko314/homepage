@@ -1,5 +1,8 @@
 export default {
   css: ["normalize.css/normalize.css", "assets/global.css"],
+  env: {
+    baseUrl: process.env.NUXT_BASE_URL || "http://localhost:3000"
+  },
   head: {
     title: "",
     meta: [
