@@ -10,6 +10,10 @@ main {
   padding: 1rem;
 }
 
+main *:last-child {
+  margin-bottom: 0;
+}
+
 @media (min-width: 36rem) {
   main {
     width: 36rem;
