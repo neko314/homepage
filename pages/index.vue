@@ -17,3 +17,40 @@
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+  head() {
+    return {
+      title: "Naoto Kaneko",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Naoto Kaneko's homepage"
+        },
+        {
+          hid: "og:title",
+          name: "og:title",
+          content: "Naoto Kaneko"
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: "Naoto Kaneko's homepage"
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: "Naoto Kaneko"
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: "Naoto Kaneko's homepage"
+        }
+      ]
+    };
+  }
+};
+</script>
