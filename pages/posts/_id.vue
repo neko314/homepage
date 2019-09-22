@@ -3,11 +3,12 @@
     <page-title>{{ title }}</page-title>
     <p>
       <time-label :timeString="time" />
+      <tag-label v-for="(tag, index) in tags" :key="index" :name="tag" />
     </p>
     <post-body :body="body"></post-body>
     <ul>
       <nuxt-link to="/">Top</nuxt-link>
-      <span>|</span>
+      <span class="separator">|</span>
       <nuxt-link to="/posts/">Posts</nuxt-link>
     </ul>
   </div>
@@ -19,10 +20,11 @@ p {
 }
 
 ul {
+  padding: 0;
   text-align: center;
 }
 
-span {
+.separator {
   margin: 0 0.25rem;
 }
 </style>
@@ -30,6 +32,7 @@ span {
 <script>
 import PageTitle from "~/components/PageTitle.vue";
 import PostBody from "~/components/PostBody.vue";
+import TagLabel from "~/components/TagLabel.vue";
 import TimeLabel from "~/components/TimeLabel.vue";
 
 export default {
@@ -38,6 +41,7 @@ export default {
       title: undefined,
       description: undefined,
       time: undefined,
+      tags: [],
       body: undefined
     };
   },
@@ -48,12 +52,14 @@ export default {
       title: content.title,
       description: content.description,
       time: content.time,
+      tags: content.tags,
       body: content.bodyHtml
     };
   },
   components: {
     PageTitle,
     PostBody,
+    TagLabel,
     TimeLabel
   },
   validate({ params }) {

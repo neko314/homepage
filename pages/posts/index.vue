@@ -4,6 +4,7 @@
     <ul>
       <li v-for="(post, index) in posts" v-bind:key="index">
         <nuxt-link v-bind:to="post.base.replace('.json', '.html')">{{ post.title }}</nuxt-link>
+        <tag-label v-for="(tag, index) in post.tags" :key="index" :name="tag" />
       </li>
     </ul>
     <p class="navigation-links">
@@ -20,6 +21,7 @@
 
 <script>
 import PageTitle from "~/components/PageTitle.vue";
+import TagLabel from "~/components/TagLabel.vue";
 import { fileMap } from "assets/contents/summary.json";
 
 export default {
@@ -33,7 +35,8 @@ export default {
     }
   },
   components: {
-    PageTitle
+    PageTitle,
+    TagLabel
   },
   head() {
     return {
