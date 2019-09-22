@@ -29,11 +29,8 @@ article >>> pre {
 }
 
 article >>> pre {
-  background-color: rgb(51, 51, 51);
-  color: rgb(255, 255, 255);
   font-size: 0.85rem;
   line-height: 1.8;
-  padding: 0.5rem;
   overflow-x: auto;
 }
 
@@ -77,6 +74,8 @@ article >>> hr {
 </style>
 
 <script>
+import "highlight.js/styles/tomorrow-night.css";
+
 export default {
   props: {
     body: String
