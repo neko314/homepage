@@ -1,7 +1,10 @@
 <template>
   <div>
     <page-title>{{ title }}</page-title>
-    <post-body v-bind:body="body"></post-body>
+    <p>
+      <time-label :timeString="time" />
+    </p>
+    <post-body :body="body"></post-body>
     <ul>
       <nuxt-link to="/">Top</nuxt-link>
       <span>|</span>
@@ -11,6 +14,10 @@
 </template>
 
 <style scoped>
+p {
+  margin: 0 0 2rem 0;
+}
+
 ul {
   text-align: center;
 }
@@ -23,13 +30,15 @@ span {
 <script>
 import PageTitle from "~/components/PageTitle.vue";
 import PostBody from "~/components/PostBody.vue";
+import TimeLabel from "~/components/TimeLabel.vue";
 
 export default {
   data() {
     return {
-      title: "",
-      description: "",
-      body: ""
+      title: undefined,
+      description: undefined,
+      time: undefined,
+      body: undefined
     };
   },
   async asyncData({ params }) {
@@ -38,12 +47,14 @@ export default {
     return {
       title: content.title,
       description: content.description,
+      time: content.time,
       body: content.bodyHtml
     };
   },
   components: {
     PageTitle,
-    PostBody
+    PostBody,
+    TimeLabel
   },
   validate({ params }) {
     return params.id.endsWith(".html");
