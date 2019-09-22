@@ -5,6 +5,7 @@
   "author": "Naoto Kaneko <naoty.k@gmail.com>",
   "private": true,
   "dependencies": {
+    "dayjs": "^1.8.16",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.9.2",
     "processmd": "^4.4.2"
