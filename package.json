@@ -22,7 +22,7 @@
     "gatsby-remark-prismjs": "^3.3.13",
     "gatsby-source-filesystem": "^2.1.26",
     "gatsby-transformer-remark": "^2.6.24",
-    "luxon": "^1.17.3",
+    "luxon": "^1.18.0",
     "prismjs": "^1.17.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
