@@ -43,7 +43,6 @@ export default {
       title: "Naoto Kaneko's posts",
       meta: [
         {
-          hid: "description",
           name: "description",
           content: "Naoto Kaneko's posts"
         },
@@ -53,7 +52,6 @@ export default {
           content: "Naoto Kaneko's posts"
         },
         {
-          hid: "og:description",
           name: "og:description",
           content: "Naoto Kaneko's posts"
         },
@@ -63,7 +61,6 @@ export default {
           content: "Naoto Kaneko's posts"
         },
         {
-          hid: "twitter:description",
           name: "twitter:description",
           content: "Naoto Kaneko's posts"
         }

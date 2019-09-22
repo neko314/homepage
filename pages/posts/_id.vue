@@ -73,29 +73,22 @@ export default {
     return params.id.endsWith(".html");
   },
   head() {
+    const meta = [
+      { hid: "og:title", property: "og:title", content: this.title },
+      { hid: "og:url", property: "og:url", content: this.url },
+      { hid: "twitter:title", property: "twitter:title", content: this.title }
+    ];
+
+    if (this.description !== undefined) {
+      meta.push({ name: "description", content: this.description });
+      meta.push({ name: "og:description", content: this.description });
+      meta.push({ name: "twitter:description", content: this.description });
+    }
+
     return {
       title: this.title,
-      meta: [
-        { hid: "description", name: "description", content: this.description },
-        { hid: "og:title", property: "og:title", content: this.title },
-        {
-          hid: "og:description",
-          property: "og:description",
-          content: this.description
-        },
-        { hid: "og:url", property: "og:url", content: this.url },
-        {
-          hid: "twitter:title",
-          property: "twitter:title",
-          content: this.title
-        },
-        {
-          hid: "twitter:description",
-          property: "twitter:description",
-          content: this.description
-        }
-      ],
-      link: [{ hid: "canonical", rel: "canonical", href: this.url }]
+      link: [{ hid: "canonical", rel: "canonical", href: this.url }],
+      meta
     };
   }
 };
