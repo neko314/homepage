@@ -38,6 +38,7 @@ import TimeLabel from "~/components/TimeLabel.vue";
 export default {
   data() {
     return {
+      id: undefined,
       title: undefined,
       description: undefined,
       time: undefined,
@@ -49,12 +50,18 @@ export default {
     const id = params.id.replace(".html", "");
     const content = await import(`assets/contents/${id}.json`);
     return {
+      id,
       title: content.title,
       description: content.description,
       time: content.time,
       tags: content.tags,
       body: content.bodyHtml
     };
+  },
+  computed: {
+    url() {
+      return `${process.env.baseUrl}/posts/${this.id}.html`;
+    }
   },
   components: {
     PageTitle,
@@ -68,7 +75,27 @@ export default {
   head() {
     return {
       title: this.title,
-      description: this.description
+      meta: [
+        { hid: "description", name: "description", content: this.description },
+        { hid: "og:title", property: "og:title", content: this.title },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.description
+        },
+        { hid: "og:url", property: "og:url", content: this.url },
+        {
+          hid: "twitter:title",
+          property: "twitter:title",
+          content: this.title
+        },
+        {
+          hid: "twitter:description",
+          property: "twitter:description",
+          content: this.description
+        }
+      ],
+      link: [{ hid: "canonical", rel: "canonical", href: this.url }]
     };
   }
 };
