@@ -5,6 +5,7 @@ services:
     command: ["npx", "nuxt", "--hostname", "0.0.0.0"]
     environment:
       NUXT_BASE_URL: "http://0.0.0.0:3000"
+      TZ: "Asia/Tokyo"
     ports:
       - 3000:3000
     volumes:
