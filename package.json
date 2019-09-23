@@ -8,6 +8,7 @@
     "dayjs": "^1.8.16",
     "fast-glob": "^3.0.4",
     "js-yaml": "^3.13.1",
+    "markdown-it": "^10.0.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.9.2",
     "processmd": "^4.4.2"

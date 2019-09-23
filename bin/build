@@ -48,4 +48,29 @@ const buildSummary = () => {
   fs.writeFileSync(summaryPath, result);
 };
 
+const buildContents = () => {
+  const md = require("markdown-it")();
+
+  const pattern = path.resolve(__dirname, "../contents/**/*.md");
+  const contentPaths = fg.sync([pattern]);
+
+  for (let contentPath of contentPaths) {
+    const contentId = path.basename(contentPath, ".md");
+    const content = fs
+      .readFileSync(contentPath)
+      .toString()
+      .trim();
+    const { frontMatter, text } = parseFrontMatter(content);
+    const html = md.render(text);
+    const result = JSON.stringify({ frontMatter, html, path: contentPath });
+
+    const summaryDirPath = path.resolve(__dirname, "../assets/contents/posts/");
+    fs.mkdirSync(summaryDirPath, { recursive: true, mode: 0o755 });
+
+    const summaryPath = path.resolve(summaryDirPath, `${contentId}.json`);
+    fs.writeFileSync(summaryPath, result);
+  }
+};
+
 buildSummary();
+buildContents();
