@@ -40,7 +40,12 @@ const buildSummary = () => {
   }
 
   result = JSON.stringify(result);
-  console.log(result);
+
+  const summaryDirPath = path.resolve(__dirname, "../assets/contents/posts/");
+  fs.mkdirSync(summaryDirPath, { recursive: true, mode: 0o755 });
+
+  const summaryPath = path.resolve(summaryDirPath, "summary.json");
+  fs.writeFileSync(summaryPath, result);
 };
 
 buildSummary();

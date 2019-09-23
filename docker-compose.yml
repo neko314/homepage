@@ -10,7 +10,7 @@ services:
       - 3000:3000
     volumes:
       - .:/homepage
-      - ./dist:/homepage/assets/contents:ro
+      - ./dist:/homepage/assets/contents
       - node_modules:/homepage/node_modules
   processmd:
     build: .
