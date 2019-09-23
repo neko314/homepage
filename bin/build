@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+const fg = require("fast-glob");
+const fs = require("fs");
+const path = require("path");
+const yaml = require("js-yaml");
+
+const parseFrontMatter = text => {
+  const pattern = /\n*---\n+(?<frontMatter>.+?)\n+---\n*/s;
+  const matched = text.match(pattern);
+  if (matched === null) {
+    return { frontMatter: {}, text };
+  }
+
+  let frontMatter = "";
+  try {
+    frontMatter = yaml.safeLoad(matched.groups.frontMatter);
+  } catch (e) {
+    console.error(e);
+    return { frontMatter: {}, text };
+  }
+  const trimmed = text.replace(pattern, "");
+  return { frontMatter, text: trimmed };
+};
+
+const buildSummary = () => {
+  let result = {};
+
+  const pattern = path.resolve(__dirname, "../contents/**/*.md");
+  const contentPaths = fg.sync([pattern]);
+
+  for (let contentPath of contentPaths) {
+    const contentId = path.basename(contentPath, ".md");
+    const content = fs
+      .readFileSync(contentPath)
+      .toString()
+      .trim();
+    const { frontMatter } = parseFrontMatter(content);
+    result[contentId] = { frontMatter, path: contentPath };
+  }
+
+  result = JSON.stringify(result);
+  console.log(result);
+};
+
+buildSummary();
