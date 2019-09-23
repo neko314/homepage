@@ -10,21 +10,15 @@ services:
       - 3000:3000
     volumes:
       - .:/homepage
-      - ./dist:/homepage/assets/contents
+      - contents:/homepage/assets/contents
       - node_modules:/homepage/node_modules
-  processmd:
+  build:
     build: .
-    command:
-      [
-        "npx",
-        "processmd",
-        "contents/**/*.md",
-        "--summaryOutput",
-        "dist/summary.json",
-        "--watch",
-      ]
+    command: ["bin/build"]
     volumes:
-      - ./dist:/homepage/dist
+      - ./bin:/homepage/bin
       - ./contents:/homepage/contents
+      - contents:/homepage/assets/contents
 volumes:
   node_modules:
+  contents:
