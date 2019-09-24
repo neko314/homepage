@@ -71,7 +71,9 @@ const watchContents = () => {
 };
 
 const buildContent = filepath => {
-  const md = require("markdown-it")();
+  const md = require("markdown-it")().use(require("markdown-it-prism"), {
+    defaultLanguage: "bash"
+  });
 
   const contentId = path.basename(filepath, ".md");
   const content = fs

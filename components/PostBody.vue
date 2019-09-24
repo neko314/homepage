@@ -74,7 +74,7 @@ article >>> hr {
 </style>
 
 <script>
-import "highlight.js/styles/tomorrow-night.css";
+import "prismjs/themes/prism-tomorrow.css";
 
 export default {
   props: {
