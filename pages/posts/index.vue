@@ -3,8 +3,8 @@
     <page-title>Posts</page-title>
     <ul>
       <li v-for="(post, index) in posts" v-bind:key="index">
-        <nuxt-link v-bind:to="post.base.replace('.json', '.html')">{{ post.title }}</nuxt-link>
-        <tag-label v-for="(tag, index) in post.tags" :key="index" :name="tag" />
+        <nuxt-link v-bind:to="post.id + '.html'">{{ post.frontMatter.title }}</nuxt-link>
+        <tag-label v-for="(tag, index) in post.frontMatter.tags" :key="index" :name="tag" />
       </li>
     </ul>
     <p class="navigation-links">
@@ -22,14 +22,14 @@
 <script>
 import PageTitle from "~/components/PageTitle.vue";
 import TagLabel from "~/components/TagLabel.vue";
-import { fileMap } from "assets/contents/summary.json";
+import summary from "assets/contents/posts/summary.json";
 
 export default {
   computed: {
     posts() {
-      return Object.values(fileMap).sort((a, b) => {
-        const aId = Number(a.base.replace(a.ext, ""));
-        const bId = Number(b.base.replace(b.ext, ""));
+      return Object.values(summary).sort((a, b) => {
+        const aId = Number(a.id);
+        const bId = Number(b.id);
         return bId - aId;
       });
     }

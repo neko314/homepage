@@ -48,14 +48,14 @@ export default {
   },
   async asyncData({ params }) {
     const id = params.id.replace(".html", "");
-    const content = await import(`assets/contents/${id}.json`);
+    const content = await import(`assets/contents/posts/${id}.json`);
     return {
       id,
-      title: content.title,
-      description: content.description,
-      time: content.time,
-      tags: content.tags,
-      body: content.bodyHtml
+      title: content.frontMatter.title,
+      description: content.frontMatter.description,
+      time: content.frontMatter.time,
+      tags: content.frontMatter.tags,
+      body: content.html
     };
   },
   computed: {
