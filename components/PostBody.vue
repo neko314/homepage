@@ -29,8 +29,10 @@ article >>> pre {
 }
 
 article >>> pre {
-  font-size: 0.85rem;
+  font-family: monospace;
+  font-size: 0.75rem;
   line-height: 1.8;
+  padding: 0.5rem;
   overflow-x: auto;
 }
 
