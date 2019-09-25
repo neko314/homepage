@@ -27,11 +27,7 @@ import summary from "assets/contents/posts/summary.json";
 export default {
   computed: {
     posts() {
-      return Object.values(summary).sort((a, b) => {
-        const aId = Number(a.id);
-        const bId = Number(b.id);
-        return bId - aId;
-      });
+      return Object.values(summary).sort((a, b) => Number(b.id) - Number(a.id));
     }
   },
   components: {
