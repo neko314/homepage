@@ -72,6 +72,7 @@ const watchContents = () => {
 
 const buildContent = filepath => {
   const md = require("markdown-it")({
+    html: true,
     linkify: true
   }).use(require("markdown-it-prism"), {
     defaultLanguage: "bash"
