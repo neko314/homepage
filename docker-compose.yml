@@ -19,6 +19,14 @@ services:
       - ./bin:/homepage/bin
       - ./contents:/homepage/contents
       - contents:/homepage/assets/contents
+  web:
+    build: .
+    command: ["npx", "http-server", "/homepage/dist"]
+    ports:
+      - 8080:8080
+    volumes:
+      - ./dist:/homepage/dist
 volumes:
-  node_modules:
   contents:
+  node_modules:
+  public:
