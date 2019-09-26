@@ -4,6 +4,9 @@
   "version": "2.0.0",
   "author": "Naoto Kaneko <naoty.k@gmail.com>",
   "private": true,
+  "scripts": {
+    "build": "bin/build && nuxt generate"
+  },
   "dependencies": {
     "dayjs": "^1.8.16",
     "fast-glob": "^3.0.4",
