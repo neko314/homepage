@@ -28,8 +28,12 @@ article >>> pre {
   padding: 0;
 }
 
-article >>> pre {
+article >>> pre,
+article >>> code {
   font-family: monospace;
+}
+
+article >>> pre {
   font-size: 0.75rem;
   line-height: 1.8;
   padding: 0.5rem;
