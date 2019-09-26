@@ -1,3 +1,5 @@
+const summary = require("./assets/contents/posts/summary.json");
+
 export default {
   css: ["normalize.css/normalize.css", "assets/global.css"],
   env: {
@@ -20,6 +22,9 @@ export default {
       { hid: "twitter:site", property: "twitter:site", content: "@naoty_k" },
       { hid: "twitter:title", property: "twitter:title", content: "" }
     ],
+    generate: {
+      routes: Object.keys(summary).map(id => `/posts/${id}.html`)
+    },
     link: [
       {
         hid: "icon",
