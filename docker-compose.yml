@@ -14,7 +14,7 @@ services:
       - node_modules:/homepage/node_modules
   build:
     build: .
-    command: ["bin/build"]
+    command: ["bin/build", "--watch"]
     volumes:
       - ./bin:/homepage/bin
       - ./contents:/homepage/contents

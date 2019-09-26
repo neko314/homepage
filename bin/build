@@ -101,4 +101,7 @@ const buildContent = filepath => {
 
 buildSummary();
 buildContents();
-watchContents();
+
+if (process.argv[2] == "--watch") {
+  watchContents();
+}
