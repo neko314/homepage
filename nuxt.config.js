@@ -17,10 +17,19 @@ export default {
       { hid: "og:type", property: "og:type", content: "profile" },
       { hid: "og:title", property: "og:title", content: "" },
       { hid: "og:url", property: "og:url", content: "" },
-      { hid: "og:image", property: "og:image", content: "" },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: `${process.env.NUXT_BASE_URL}/icons/256x256.png`
+      },
       { hid: "twitter:card", property: "twitter:card", content: "summary" },
       { hid: "twitter:site", property: "twitter:site", content: "@naoty_k" },
-      { hid: "twitter:title", property: "twitter:title", content: "" }
+      { hid: "twitter:title", property: "twitter:title", content: "" },
+      {
+        hid: "twitter:image",
+        property: "twitter:image",
+        content: `${process.env.NUXT_BASE_URL}/icons/256x256.png`
+      }
     ],
     generate: {
       routes: Object.keys(summary).map(id => `/posts/${id}.html`)
