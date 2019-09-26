@@ -28,6 +28,9 @@ export default {
   computed: {
     posts() {
       return Object.values(summary).sort((a, b) => Number(b.id) - Number(a.id));
+    },
+    url() {
+      return `${process.env.baseUrl}/posts/`;
     }
   },
   components: {
@@ -38,37 +41,15 @@ export default {
     return {
       title: "Naoto Kaneko's posts",
       meta: [
-        {
-          name: "description",
-          content: "Naoto Kaneko's posts"
-        },
-        { hid: "og:type", property: "og:type", content: "blog" },
-        {
-          hid: "og:title",
-          name: "og:title",
-          content: "Naoto Kaneko's posts"
-        },
-        {
-          name: "og:description",
-          content: "Naoto Kaneko's posts"
-        },
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "Naoto Kaneko's posts"
-        },
-        {
-          name: "twitter:description",
-          content: "Naoto Kaneko's posts"
-        }
+        { name: "description", content: "Naoto Kaneko's posts" },
+        { property: "og:type", content: "blog" },
+        { property: "og:title", content: "Naoto Kaneko's posts" },
+        { property: "og:description", content: "Naoto Kaneko's posts" },
+        { property: "og:url", content: this.url },
+        { name: "twitter:title", content: "Naoto Kaneko's posts" },
+        { name: "twitter:description", content: "Naoto Kaneko's posts" }
       ],
-      link: [
-        {
-          hid: "canonical",
-          rel: "canonical",
-          href: `${process.env.baseUrl}/posts/`
-        }
-      ]
+      link: [{ rel: "canonical", href: this.url }]
     };
   }
 };

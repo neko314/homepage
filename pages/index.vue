@@ -29,31 +29,15 @@ export default {
     return {
       title: "Naoto Kaneko",
       meta: [
-        {
-          name: "description",
-          content: "Naoto Kaneko's homepage"
-        },
-        { hid: "og:type", property: "og:type", content: "profile" },
-        {
-          hid: "og:title",
-          name: "og:title",
-          content: "Naoto Kaneko"
-        },
-        {
-          name: "og:description",
-          content: "Naoto Kaneko's homepage"
-        },
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "Naoto Kaneko"
-        },
-        {
-          name: "twitter:description",
-          content: "Naoto Kaneko's homepage"
-        }
+        { name: "description", content: "Naoto Kaneko's homepage" },
+        { property: "og:type", content: "profile" },
+        { property: "og:title", content: "Naoto Kaneko" },
+        { property: "og:description", content: "Naoto Kaneko's homepage" },
+        { property: "og:url", content: process.env.baseUrl },
+        { name: "twitter:title", content: "Naoto Kaneko" },
+        { name: "twitter:description", content: "Naoto Kaneko's homepage" }
       ],
-      link: [{ hid: "canonical", rel: "canoical", href: process.env.baseUrl }]
+      link: [{ rel: "canoical", href: process.env.baseUrl }]
     };
   }
 };

@@ -6,25 +6,20 @@ export default {
     baseUrl: process.env.NUXT_BASE_URL || "http://localhost:3000"
   },
   head: {
-    title: "",
     meta: [
       { charset: "utf-8" },
       {
         name: "viewport",
         content: "width=device-width, initial-scale=1, shrink-to-fit=no"
       },
-      { hid: "theme-color", name: "theme-color", content: "white" },
-      { hid: "og:type", property: "og:type", content: "profile" },
-      { hid: "og:title", property: "og:title", content: "" },
-      { hid: "og:url", property: "og:url", content: "" },
+      { name: "theme-color", content: "white" },
       {
         hid: "og:image",
         property: "og:image",
         content: `${process.env.NUXT_BASE_URL}/icons/256x256.png`
       },
-      { hid: "twitter:card", property: "twitter:card", content: "summary" },
-      { hid: "twitter:site", property: "twitter:site", content: "@naoty_k" },
-      { hid: "twitter:title", property: "twitter:title", content: "" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:site", content: "@naoty_k" },
       {
         hid: "twitter:image",
         property: "twitter:image",
@@ -35,19 +30,9 @@ export default {
       routes: Object.keys(summary).map(id => `/posts/${id}.html`)
     },
     link: [
-      {
-        hid: "icon",
-        rel: "icon",
-        type: "image/png",
-        href: "/icons/favicon.png"
-      },
-      {
-        hid: "apple-touch-icon",
-        rel: "apple-touch-icon",
-        href: "/icons/apple-touch-icon.png"
-      },
-      { hid: "canonical", rel: "canonical", href: "" },
-      { hid: "manifest", rel: "manifest", href: "/manifest.json" }
+      { rel: "icon", type: "image/png", href: "/icons/favicon.png" },
+      { rel: "apple-touch-icon", href: "/icons/apple-touch-icon.png" },
+      { rel: "manifest", href: "/manifest.json" }
     ]
   }
 };
