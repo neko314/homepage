@@ -42,6 +42,7 @@ export default {
           name: "description",
           content: "Naoto Kaneko's posts"
         },
+        { hid: "og:type", property: "og:type", content: "blog" },
         {
           hid: "og:title",
           name: "og:title",

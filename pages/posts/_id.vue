@@ -74,6 +74,7 @@ export default {
   },
   head() {
     const meta = [
+      { hid: "og:type", property: "og:type", content: "article" },
       { hid: "og:title", property: "og:title", content: this.title },
       { hid: "og:url", property: "og:url", content: this.url },
       { hid: "twitter:title", property: "twitter:title", content: this.title }

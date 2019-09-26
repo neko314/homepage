@@ -33,6 +33,7 @@ export default {
           name: "description",
           content: "Naoto Kaneko's homepage"
         },
+        { hid: "og:type", property: "og:type", content: "profile" },
         {
           hid: "og:title",
           name: "og:title",
