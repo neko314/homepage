@@ -1,9 +1,8 @@
-# Homepage
-Homepage builder for https://naoty.github.io with [Gatsby.js](https://www.gatsbyjs.org/)
+# homepage
+My homepage builder for https://naoty.dev.
 
-## Development
-
-```sh
-$ npm install
-$ npm run develop
-```
+## Tech stack
+* Generator: Nuxt.js
+* Domain: Google Domains
+* Hosting: Netlify
+* Automation: Dependabot
