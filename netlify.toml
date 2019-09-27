@@ -1,0 +1,3 @@
+[build.environment]
+NUXT_BASE_URL = "https://naoty.dev"
+TZ = "Asia/Tokyo"
