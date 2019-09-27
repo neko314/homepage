@@ -1,7 +1,7 @@
 {
   "name": "homepage",
   "description": "My homepage",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "author": "Naoto Kaneko <naoty.k@gmail.com>",
   "private": true,
   "scripts": {
