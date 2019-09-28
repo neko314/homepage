@@ -1,3 +1,4 @@
+const path = require("path");
 const summary = require("./assets/contents/posts/summary.json");
 
 export default {
@@ -31,6 +32,17 @@ export default {
       { rel: "apple-touch-icon", href: "/icons/apple-touch-icon.png" },
       { rel: "manifest", href: "/manifest.json" }
     ]
+  },
+  hooks: {
+    generate: {
+      page(generator) {
+        generator.path = generator.path.replace(
+          /\/posts\/(?<id>\d+)\/index\.html/,
+          "/posts/$<id>.html"
+        );
+        return generator;
+      }
+    }
   },
   generate: {
     routes: Object.keys(summary).map(id => `/posts/${id}`)
