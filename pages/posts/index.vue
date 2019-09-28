@@ -15,6 +15,7 @@
 
 <style scoped>
 .navigation-links {
+  margin-top: 2rem;
   text-align: center;
 }
 </style>

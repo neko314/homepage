@@ -6,7 +6,7 @@
       <tag-label v-for="(tag, index) in tags" :key="index" :name="tag" />
     </p>
     <post-body :body="body"></post-body>
-    <ul>
+    <ul class="navigation-links">
       <nuxt-link to="/">Top</nuxt-link>
       <span class="separator">|</span>
       <nuxt-link to="/posts/">Posts</nuxt-link>
@@ -19,7 +19,8 @@ p {
   margin: 0 0 2rem 0;
 }
 
-ul {
+.navigation-links {
+  margin-top: 2rem;
   padding: 0;
   text-align: center;
 }
