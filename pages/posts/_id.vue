@@ -70,9 +70,6 @@ export default {
     TagLabel,
     TimeLabel
   },
-  validate({ params }) {
-    return params.id.endsWith(".html");
-  },
   head() {
     const meta = [
       { property: "og:type", content: "article" },

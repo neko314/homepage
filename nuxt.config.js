@@ -33,6 +33,6 @@ export default {
     ]
   },
   generate: {
-    routes: Object.keys(summary).map(id => `/posts/${id}.html`)
+    routes: Object.keys(summary).map(id => `/posts/${id}`)
   }
 };
