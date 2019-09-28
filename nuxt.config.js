@@ -26,13 +26,13 @@ export default {
         content: `${process.env.NUXT_BASE_URL}/icons/256x256.png`
       }
     ],
-    generate: {
-      routes: Object.keys(summary).map(id => `/posts/${id}.html`)
-    },
     link: [
       { rel: "icon", type: "image/png", href: "/icons/favicon.png" },
       { rel: "apple-touch-icon", href: "/icons/apple-touch-icon.png" },
       { rel: "manifest", href: "/manifest.json" }
     ]
+  },
+  generate: {
+    routes: Object.keys(summary).map(id => `/posts/${id}.html`)
   }
 };
