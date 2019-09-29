@@ -19,7 +19,7 @@ export default {
         for (let post of posts) {
           const item = {
             title: post.frontMatter.title,
-            id: post.id,
+            id: `${process.env.NUXT_BASE_URL}/posts/${post.id}.html`,
             link: `${process.env.NUXT_BASE_URL}/posts/${post.id}.html`,
             content: require(`./assets/contents/posts/${post.id}.json`).html,
             date: dayjs(post.frontMatter.time, "YYYY-MM-DD:HH:mm:ssZZ")
