@@ -15,7 +15,6 @@
     "markdown-it": "^10.0.0",
     "markdown-it-prism": "^2.0.3",
     "normalize.css": "^8.0.1",
-    "nuxt": "^2.9.2",
-    "processmd": "^4.4.2"
+    "nuxt": "^2.9.2"
   }
 }
