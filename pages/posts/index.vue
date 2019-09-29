@@ -55,7 +55,7 @@ export default {
         {
           rel: "alternate",
           type: "application/atom+xml",
-          href: "/posts/atom.xml",
+          href: "/posts/feed.atom",
           title: "Atom"
         }
       ]
