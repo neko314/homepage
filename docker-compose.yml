@@ -8,6 +8,8 @@ services:
       TZ: "Asia/Tokyo"
     ports:
       - 3000:3000
+    depends_on:
+      - build
     volumes:
       - .:/homepage
       - contents:/homepage/assets/contents
