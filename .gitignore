@@ -3,3 +3,4 @@
 .nuxt
 dist
 node_modules
+static/posts/feed.atom

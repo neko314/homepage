@@ -86,7 +86,15 @@ export default {
 
     return {
       title: this.title,
-      link: [{ rel: "canonical", href: this.url }],
+      link: [
+        { rel: "canonical", href: this.url },
+        {
+          rel: "alternate",
+          type: "application/atom+xml",
+          href: "/posts/atom.xml",
+          title: "Atom"
+        }
+      ],
       meta
     };
   }

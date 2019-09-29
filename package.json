@@ -8,6 +8,7 @@
     "build": "bin/build && nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/feed": "^1.1.0",
     "dayjs": "^1.8.16",
     "fast-glob": "^3.0.4",
     "http-server": "^0.11.1",

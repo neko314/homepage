@@ -50,7 +50,15 @@ export default {
         { name: "twitter:title", content: "Naoto Kaneko's posts" },
         { name: "twitter:description", content: "Naoto Kaneko's posts" }
       ],
-      link: [{ rel: "canonical", href: this.url }]
+      link: [
+        { rel: "canonical", href: this.url },
+        {
+          rel: "alternate",
+          type: "application/atom+xml",
+          href: "/posts/atom.xml",
+          title: "Atom"
+        }
+      ]
     };
   }
 };
