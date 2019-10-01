@@ -12,7 +12,7 @@ export default {
   head,
   hooks,
   generate: {
-    routes: Object.keys(summary).map(id => `/posts/${id}`)
+    routes: ["/", "/posts/", ...Object.keys(summary).map(id => `/posts/${id}`)]
   },
   modules: ["@nuxtjs/feed", "@nuxtjs/router"]
 };
