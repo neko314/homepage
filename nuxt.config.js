@@ -14,5 +14,5 @@ export default {
   generate: {
     routes: Object.keys(summary).map(id => `/posts/${id}`)
   },
-  modules: ["@nuxtjs/feed"]
+  modules: ["@nuxtjs/feed", "@nuxtjs/router"]
 };
