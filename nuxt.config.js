@@ -1,5 +1,5 @@
-const summary = require("./assets/contents/posts/summary.json");
 const feed = require("./configs/feed");
+const generate = require("./configs/generate");
 const head = require("./configs/head");
 const hooks = require("./configs/hooks");
 
@@ -11,8 +11,6 @@ export default {
   feed,
   head,
   hooks,
-  generate: {
-    routes: ["/", "/posts/", ...Object.keys(summary).map(id => `/posts/${id}`)]
-  },
+  generate,
   modules: ["@nuxtjs/feed", "@nuxtjs/router"]
 };
