@@ -3,7 +3,7 @@
     <page-title>Posts</page-title>
     <ul>
       <li v-for="(post, index) in posts" v-bind:key="index">
-        <nuxt-link v-bind:to="post.id + '.html'">{{ post.frontMatter.title }}</nuxt-link>
+        <nuxt-link v-bind:to="'/posts/' + post.id + '.html'">{{ post.frontMatter.title }}</nuxt-link>
         <tag-label v-for="(tag, index) in post.frontMatter.tags" :key="index" :name="tag" />
       </li>
     </ul>
