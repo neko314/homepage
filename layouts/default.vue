@@ -23,4 +23,10 @@ main *:last-child {
       -3px 0 5px rgba(0, 0, 0, 0.1);
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  main {
+    background-color: #3b4252;
+  }
+}
 </style>

@@ -11,4 +11,10 @@ h1 {
   padding: 0 0 0.5rem 0;
   border-bottom: 1px solid #333;
 }
+
+@media (prefers-color-scheme: dark) {
+  h1 {
+    border-bottom: 1px solid #eceff4;
+  }
+}
 </style>

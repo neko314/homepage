@@ -8,6 +8,12 @@ time {
   font-family: monospace;
   font-size: 0.8rem;
 }
+
+@media (prefers-color-scheme: dark) {
+  time {
+    color: #d8dee9;
+  }
+}
 </style>
 
 <script>

@@ -10,6 +10,12 @@ a {
   margin: 0 0 0 0.5rem;
   text-decoration: none;
 }
+
+@media (prefers-color-scheme: dark) {
+  a, a:visited {
+    color: #d8dee9;
+  }
+}
 </style>
 
 <script>
