@@ -14,6 +14,12 @@ main *:last-child {
   margin-bottom: 0;
 }
 
+@media (max-width: 36rem) {
+  main {
+    min-height: 100vh;
+  }
+}
+
 @media (min-width: 36rem) {
   main {
     width: 36rem;
