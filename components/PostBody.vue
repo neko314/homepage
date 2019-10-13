@@ -1,80 +1,80 @@
 <template>
-  <article v-html="body"></article>
+  <section v-html="body"></section>
 </template>
 
 <style scoped>
-article {
+section {
   line-height: 2;
 }
 
-article >>> h1,
-article >>> h2,
-article >>> h3,
-article >>> h4,
-article >>> h5,
-article >>> h6 {
+section >>> h1,
+section >>> h2,
+section >>> h3,
+section >>> h4,
+section >>> h5,
+section >>> h6 {
   margin: 2rem 0 1rem 0;
   padding: 0;
 }
 
-article >>> h1 {
+section >>> h1 {
   font-size: 1.5rem;
 }
 
-article >>> p,
-article >>> table,
-article >>> pre {
+section >>> p,
+section >>> table,
+section >>> pre {
   margin: 0 0 1rem 0;
   padding: 0;
 }
 
-article >>> pre,
-article >>> code {
+section >>> pre,
+section >>> code {
   font-family: monospace;
 }
 
-article >>> pre {
+section >>> pre {
   font-size: 0.75rem;
   line-height: 1.8;
   padding: 0.5rem;
   overflow-x: auto;
 }
 
-article >>> img {
+section >>> img {
   display: block;
   width: 100%;
 }
 
-article >>> ul,
-article >>> ol {
+section >>> ul,
+section >>> ol {
   margin: 0 0 1rem 0;
   padding: 0 0 0 2rem;
 }
 
-article >>> li {
+section >>> li {
   margin: 0 0 0.5rem 0;
   padding: 0;
 }
 
-article >>> table,
-article >>> th,
-article >>> td {
+section >>> table,
+section >>> th,
+section >>> td {
   border: 1px solid #333;
 }
 
-article >>> table {
+section >>> table {
   border-collapse: collapse;
   margin: 0 0 1rem 0;
   padding: 0;
   width: 100%;
 }
 
-article >>> th,
-article >>> td {
+section >>> th,
+section >>> td {
   padding: 0.25rem;
 }
 
-article >>> hr {
+section >>> hr {
   margin: 2rem 0;
 }
 </style>

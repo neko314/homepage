@@ -1,26 +1,33 @@
 <template>
-  <div>
-    <page-title>{{ title }}</page-title>
-    <p>
-      <time-label :timeString="time" />
-      <tag-label v-for="(tag, index) in tags" :key="index" :name="tag" />
-    </p>
+  <article>
+    <header>
+      <page-title>{{ title }}</page-title>
+      <p>
+        <time-label :timeString="time" />
+        <tag-label v-for="(tag, index) in tags" :key="index" :name="tag" />
+      </p>
+    </header>
     <post-body :body="body"></post-body>
-    <ul class="navigation-links">
-      <nuxt-link to="/">Top</nuxt-link>
-      <span class="separator">|</span>
-      <nuxt-link to="/posts/">Posts</nuxt-link>
-    </ul>
-  </div>
+    <footer>
+      <ul class="navigation-links">
+        <nuxt-link to="/">Top</nuxt-link>
+        <span class="separator">|</span>
+        <nuxt-link to="/posts/">Posts</nuxt-link>
+      </ul>
+    </footer>
+  </article>
 </template>
 
 <style scoped>
-p {
+header {
   margin: 0 0 2rem 0;
 }
 
-.navigation-links {
+footer {
   margin-top: 2rem;
+}
+
+.navigation-links {
   padding: 0;
   text-align: center;
 }
