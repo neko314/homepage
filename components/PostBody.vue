@@ -30,7 +30,7 @@ section >>> pre {
 
 section >>> pre,
 section >>> code {
-  font-family: monospace;
+  font-family: "SF Mono", Menlo, "Courier", monospace;
 }
 
 section >>> pre {

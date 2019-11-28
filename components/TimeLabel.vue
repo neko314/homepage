@@ -5,7 +5,7 @@
 <style scoped>
 time {
   color: rgba(0, 0, 0, 0.54);
-  font-family: monospace;
+  font-family: "SF Mono", Menlo, "Courier", monospace;
   font-size: 0.8rem;
 }
 
