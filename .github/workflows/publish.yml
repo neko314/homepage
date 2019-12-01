@@ -20,3 +20,25 @@ jobs:
         with:
           name: homepage
           path: dist
+  push:
+    name: push
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          ref: gh-pages
+        env:
+          GITHUB_WORKSPACE: /github/workspace/original
+      - uses: actions/download-artifact@v1
+        with:
+          name: homepage
+          path: /github/workspace/replacement
+      - run: mv /github/workspace/original/.git /github/workspace/replacement/.git
+      - name: push
+        run: |
+          git add .
+          git commit -m "publish ${GITHUB_SHA}"
+          git push origin gh-pages
+        working-directory: /github/workspace/replacement
