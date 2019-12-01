@@ -33,7 +33,13 @@ jobs:
         with:
           name: homepage
           path: /home/runner/work/homepage/replacement
-      - name: investigate directory
+      - name: push to gh-pages
         run: |
-          pwd
-          ls -a
+          mv /home/runner/work/homepage/homepage/.git ./
+          git config --global user.email "naoty.k@gmail.com"
+          git config --global user.name "Naoto Kaneko"
+          git remote set-url origin git@github.com:naoty/homepage.git
+          git add .
+          git commit -m "Publish ${GITHUB_SHA}"
+          git push origin gh-pages
+        working-directory: /home/runner/work/homepage/replacement/
