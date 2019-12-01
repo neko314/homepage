@@ -6,8 +6,8 @@ on:
       - master
 
 jobs:
-  publish:
-    name: publish
+  build:
+    name: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -16,3 +16,7 @@ jobs:
           node-version: 12.x
       - run: npm install
       - run: npm run build
+      - uses: actions/upload-artifact@v1
+        with:
+          name: homepage
+          path: dist
