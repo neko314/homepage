@@ -26,23 +26,10 @@ jobs:
       - build
     runs-on: ubuntu-latest
     steps:
-      - name: setup directories
-        run: |
-          mkdir -p /homepage/original
-          mkdir -p /homepage/replacement
       - uses: actions/checkout@v1
         with:
           ref: gh-pages
-        env:
-          GITHUB_WORKSPACE: /homepage/original
-      - uses: actions/download-artifact@v1
-        with:
-          name: homepage
-          path: /homepage/replacement
-      - run: mv /homepage/original/.git /homepage/replacement/.git
-      - name: push
+      - name: investigate directory
         run: |
-          git add .
-          git commit -m "publish ${GITHUB_SHA}"
-          git push origin gh-pages
-        working-directory: homepage/replacement
+          pwd
+          ls -a
