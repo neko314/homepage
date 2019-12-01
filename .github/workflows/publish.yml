@@ -1,0 +1,12 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo "this is test"
