@@ -29,6 +29,10 @@ jobs:
       - uses: actions/checkout@v1
         with:
           ref: gh-pages
+      - uses: actions/download-artifact@v1
+        with:
+          name: homepage
+          path: /home/runner/work/homepage/replacement
       - name: investigate directory
         run: |
           pwd
