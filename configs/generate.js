@@ -1,5 +1,5 @@
 const summary = require("../assets/contents/posts/summary.json");
-const postPaths = Object.keys(summary).map(id => `/posts/${id}.html`);
+const postPaths = Object.keys(summary).map(id => `/posts/${id}`);
 const tagPaths = Object.values(summary)
   .flatMap(({ frontMatter: { tags } }) => tags)
   .filter(tag => tag !== undefined)
@@ -7,5 +7,6 @@ const tagPaths = Object.values(summary)
   .map(tag => `/posts/${tag}/`);
 
 module.exports = {
-  routes: ["/", "/posts/", ...postPaths, ...tagPaths]
+  routes: ["/", "/posts/", ...postPaths, ...tagPaths],
+  subFolders: false
 };
