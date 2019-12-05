@@ -12,22 +12,14 @@ export function createRouter() {
   return new Router({
     mode: "history",
     routes: [
-      {
-        path: "/",
-        component: Index
-      },
-      {
-        path: "/posts/",
-        component: PostsIndex
-      },
-      {
-        path: "/posts/:id(\\d+)\\.html",
-        component: PostId
-      },
-      {
-        path: "/posts/:tag/",
-        component: PostsTagIndex
-      }
+      { path: "/", component: Index },
+      { path: "/index", component: Index },
+      { path: "/posts/", component: PostsIndex },
+      { path: "/posts/index", component: PostsIndex },
+      { path: "/posts/:id(\\d+)", component: PostId },
+      { path: "/posts/:id(\\d+)\\.html", component: PostId },
+      { path: "/posts/:tag/", component: PostsTagIndex },
+      { path: "/posts/:tag/index", component: PostsTagIndex }
     ]
   });
 }

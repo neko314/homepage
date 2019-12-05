@@ -4,9 +4,9 @@ const tagPaths = Object.values(summary)
   .flatMap(({ frontMatter: { tags } }) => tags)
   .filter(tag => tag !== undefined)
   .filter((tag, index, self) => self.indexOf(tag) === index)
-  .map(tag => `/posts/${tag}/`);
+  .map(tag => `/posts/${tag}/index`);
 
 module.exports = {
-  routes: ["/", "/posts/", ...postPaths, ...tagPaths],
+  routes: ["/index", "/posts/index", ...postPaths, ...tagPaths],
   subFolders: false
 };
