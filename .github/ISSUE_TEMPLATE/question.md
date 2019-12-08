@@ -1,5 +1,6 @@
 ---
 name: Question
+about: Question template for posts
 title: "[TITLE]" 
 labels: questions
 assignees: naoty
