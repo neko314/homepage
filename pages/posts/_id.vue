@@ -9,6 +9,7 @@
     </header>
     <post-body :body="body"></post-body>
     <footer>
+      <feedback-links :id="id" />
       <ul class="navigation-links">
         <nuxt-link to="/">Top</nuxt-link>
         <span class="separator">|</span>
@@ -28,6 +29,7 @@ footer {
 }
 
 .navigation-links {
+  margin-top: 2rem;
   padding: 0;
   text-align: center;
 }
@@ -38,6 +40,7 @@ footer {
 </style>
 
 <script>
+import FeedbackLinks from "~/components/FeedbackLinks.vue";
 import PageTitle from "~/components/PageTitle.vue";
 import PostBody from "~/components/PostBody.vue";
 import TagLabel from "~/components/TagLabel.vue";
@@ -72,6 +75,7 @@ export default {
     }
   },
   components: {
+    FeedbackLinks,
     PageTitle,
     PostBody,
     TagLabel,
